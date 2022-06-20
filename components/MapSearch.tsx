@@ -1,14 +1,11 @@
-import { View, Text, Button, StyleSheet, ScrollView } from "react-native";
+import { View, Text, Button, StyleSheet, ScrollView, TouchableOpacity } from "react-native";
 import MapView, { Marker, MapEvent } from "react-native-maps";
 import React, { useState } from "react";
 
 import pinIcon from "./green-pin.png";
+import DateTimePicker from "react-native-modal-datetime-picker";
+import { Location } from "../types";
 
-type Location = {
-  latitude: number;
-  longitude: number;
-  label: string;
-};
 
 const fetchAddress = async (latitude: number, longitude: number) => {
   try {
@@ -23,10 +20,24 @@ const fetchAddress = async (latitude: number, longitude: number) => {
 };
 
 export default function MapSearch() {
-  const [coordinates, setCoordinates] = useState<Location[]>([]);
   const [label, setLabel] = useState("");
   const [start, setStart] = useState<Location>( { latitude: 44.811879, longitude: 20.464239, label:'' });
   const [finish, setFinish] = useState<Location>({ latitude: 44.811879, longitude: 20.477285, label:''});
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+  const [date, setDate] = useState<Date>(new Date());
+
+  const showDatePicker = () => {
+    setDatePickerVisibility(true);
+  };
+
+  const hideDatePicker = () => {
+    setDatePickerVisibility(false);
+  };
+
+  const handleConfirm = (date: Date) => {
+    setDate(date);
+    hideDatePicker();
+  };
 
   return (
     <View
@@ -77,21 +88,20 @@ export default function MapSearch() {
               setFinish({ latitude, longitude, label: l })
             }}
           >
-            <Text style={{fontWeight:"bold"}}>FINISH</Text>
+           <Text style={{fontWeight:"bold"}}>FINISH</Text>
           </Marker>
       </MapView>
      
       <View
         style={styles.stopsWrapper}
       >
-        <ScrollView style={styles.scrollView}>
         <View style={styles.stop}>
               <View
                 style={styles.stopNumber}
               >
                 <Text style={{color:'white'}}>START</Text>
               </View>
-              <Text>{start.label}</Text>
+              <Text numberOfLines={1} style={{maxWidth:'85%'}}>{start.label}</Text>
             </View>
             <View style={styles.stop}>
               <View
@@ -99,12 +109,28 @@ export default function MapSearch() {
               >
                 <Text style={{color:'white'}}>FINISH</Text>
               </View>
-              <Text>{finish.label}</Text>
+              <Text numberOfLines={1} style={{maxWidth:'85%'}}>{finish.label}</Text>
             </View>
-        </ScrollView>
-      </View>
-      <View style={styles.searchButton}>
-        <Button color="#00C897" title="Search" onPress={() => alert('Search')} />
+            
+            <TouchableOpacity style={styles.stop} onPress={showDatePicker}>
+              <View
+                  style={styles.stopNumber}
+                >
+                  <Text style={{color:'white'}}>DATE</Text>
+                </View>
+              <Text>{date?.toLocaleDateString()}</Text>
+              <DateTimePicker
+              isVisible={isDatePickerVisible}
+              mode="date"
+              onConfirm={handleConfirm}
+              onCancel={hideDatePicker}
+            />
+            </TouchableOpacity>
+           
+            <View style ={{marginTop:8}}>
+              <Button color="#00C897" title="Search" onPress={() => alert('Search')} />
+            </View>
+        
       </View>
       <Text
         style={styles.label}
@@ -135,12 +161,15 @@ const styles = StyleSheet.create({
   stopsWrapper: {
     position: "absolute",
     top: 0,
-    width:'95%'
+    width:'100%',
+    padding:16,
+    backgroundColor:'white'
   },
   stop: {
     flexDirection: "row",
-    backgroundColor: "white",
-    marginTop: 4,
+    borderWidth:1,
+    borderColor: 'lightgrey',
+    marginBottom: 8,
     borderRadius: 10,
     padding: 8,
     width:'100%'
@@ -153,16 +182,5 @@ const styles = StyleSheet.create({
     marginRight:8,
     textAlign:'center',
     justifyContent:'center'
-  },
-  scrollView: {
-    backgroundColor: '#E8E8E8',
-    maxHeight: 150,
-    marginTop:8,
-    padding:8,
-  },
-  searchButton:{
-      position:"absolute",
-      bottom:64,
-      right:16
   }
 });

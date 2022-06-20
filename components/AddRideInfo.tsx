@@ -1,84 +1,57 @@
 import React from "react";
-import { Button, StyleSheet, TouchableOpacity } from "react-native";
-
-import { Text, View } from "../components/Themed";
-//import DatePicker from 'react-native-datepicker';
-import DateTimePicker from "react-native-modal-datetime-picker";
+import { Button, StyleSheet, TouchableOpacity,View } from "react-native";
+import { Text,} from "../components/Themed";
 import { useState } from "react";
+import DateTimePickerComponent from "./DateTimePickerComponent";
 
-function AddRideInfo() {
-  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
-  const [date, setDate] = useState<Date>(new Date());
-
-  const [isTimePickerVisible, setTimePickerVisibility] = useState(false);
-  const [time, setTime] = useState<Date>(new Date());
-
-  const [count, setCount] = useState(3);
-
-  const showDatePicker = () => {
-    setDatePickerVisibility(true);
-  };
-
-  const hideDatePicker = () => {
-    setDatePickerVisibility(false);
-  };
-
-  const showTimePicker = () => {
-    setTimePickerVisibility(true);
-  };
-
-  const hideTimePicker = () => {
-    setTimePickerVisibility(false);
-  };
-
-  const handleConfirm = (date: Date) => {
-    setDate(date);
-    hideDatePicker();
-  };
-
-  const handleConfirmTime = (time: Date) => {
-    setTime(time);
-    hideTimePicker();
-  };
+type AddRideInfoProps = {
+  showMap: () => void;
+  date: Date,
+  setDate: (date:Date) => void,
+  time: Date,
+  setTime: (date:Date) => void,
+  count: number,
+  setCount:(count: number) => void
+};
+function AddRideInfo(props: AddRideInfoProps) {
+  
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Information about the ride</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      {/* <EditScreenInfo path="/screens/TabTwoScreen.tsx" />  */}
+       <View style={{ alignItems: "flex-start", width:400, marginLeft:16}}>
+        <TouchableOpacity
+          style={{ padding: 8, backgroundColor: "#00C897", borderRadius: 15 }}
+          onPress={() => props.showMap()}
+        >
+          <Text style={{ color: "white" }}> {"<- STOPS"}</Text>
+          {/* <FontAwesome name="arrow-right" size={24} color="white" /> */}
+        </TouchableOpacity>
+      </View>
       <View style={{ width: "80%" }}>
         <View style={styles.field}>
-          <Text style={{ marginBottom: 8 }}>Date:</Text>
-          <Button color="#00C897" title={date?.toLocaleDateString()} onPress={showDatePicker} />
-          <DateTimePicker
-            isVisible={isDatePickerVisible}
-            mode="date"
-            onConfirm={handleConfirm}
-            onCancel={hideDatePicker}
-          />
+          <Text style={{ marginBottom: 8, color:'black' }}>Date:</Text>
+          <DateTimePickerComponent mode='date' date={props.date} setDate={(date)=> props.setDate(date)}/>
         </View>
 
         <View style={styles.field}>
-          <Text style={{ marginBottom: 8 }}>Time:</Text>
-          <Button color="#00C897" title={time?.getHours() + " : " + time?.getMinutes()} onPress={showTimePicker} />
-          <DateTimePicker
-            isVisible={isTimePickerVisible}
-            mode="time"
-            onConfirm={handleConfirmTime}
-            onCancel={hideTimePicker}
-          />
+          <Text style={{ marginBottom: 8, color:'black'  }}>Time:</Text>
+          <DateTimePickerComponent mode='time' date={props.time} setDate={(date)=> props.setTime(date)}/>
         </View>
 
         <View style={styles.field}>
-          <Text style={{ marginBottom: 8 }}>Number of people:</Text>
+          <Text style={{ marginBottom: 8,  color:'black'  }}>Number of people:</Text>
           <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
-            <TouchableOpacity onPress={() => setCount(count >= 2 ? count - 1 : 1)} style={styles.roundButton}>
+            <TouchableOpacity onPress={() => props.setCount(props.count >= 2 ? props.count - 1 : 1)} style={styles.roundButton}>
               <Text>-</Text>
             </TouchableOpacity>
-            <Text style={{ marginLeft: 16, marginRight: 16 }}>{count}</Text>
-            <TouchableOpacity onPress={() => setCount(count >= 4 ? 4 : count + 1)} style={styles.roundButton}>
+            <Text style={{ marginLeft: 16, marginRight: 16,  color:'black'  }}>{props.count}</Text>
+            <TouchableOpacity onPress={() => props.setCount(props.count >= 4 ? 4 : props.count + 1)} style={styles.roundButton}>
               <Text>+</Text>
             </TouchableOpacity>
           </View>
+          <View style={{marginTop:32}}>
+            <Button color="#00C897" title='SUBMIT' onPress={() => alert('ADD raide')} />
+          </View>
+          
         </View>
       </View>
     </View>
@@ -90,6 +63,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     paddingTop: 32,
+    backgroundColor: 'rgb(232,232,232)',
     // justifyContent: "center",
   },
   title: {

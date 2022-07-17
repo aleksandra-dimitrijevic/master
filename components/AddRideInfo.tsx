@@ -12,6 +12,7 @@ type AddRideInfoProps = {
   setTime: (date:Date) => void,
   count: number,
   setCount:(count: number) => void
+  submit: () => void
 };
 function AddRideInfo(props: AddRideInfoProps) {
   
@@ -49,7 +50,7 @@ function AddRideInfo(props: AddRideInfoProps) {
             </TouchableOpacity>
           </View>
           <View style={{marginTop:32}}>
-            <Button color="#00C897" title='SUBMIT' onPress={() => alert('ADD raide')} />
+            <Button color="#00C897" title='SUBMIT' onPress={() => props.submit()} />
           </View>
           
         </View>

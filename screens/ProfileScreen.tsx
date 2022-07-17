@@ -1,10 +1,25 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import LogIn from '../components/LogIn';
-import { User } from '../types/User';
+import { getCurrentUser, removeCurrentUser, User } from '../types/User';
 
 function ProfileScreen({ navigation }: any) {
+  
   const [currentUser, setCurrentUser] = useState<User>();
+
+  useEffect(() => {
+    async function init() {
+      try {
+        const user = await getCurrentUser();
+        setCurrentUser(user);
+      } catch (e) {
+        console.warn(e);
+      } 
+    }
+    init();
+  }, []);
+
+  
   return (
     <View style={styles.container}>
         { !currentUser && <>
@@ -22,7 +37,10 @@ function ProfileScreen({ navigation }: any) {
           <Text>Phone: {currentUser.phone}</Text>
           <TouchableOpacity
             style={{ marginTop:32}}
-            onPress={() => setCurrentUser(undefined)}
+            onPress={() => {
+              setCurrentUser(undefined);
+              removeCurrentUser();
+            }}
           >
             <Text style={{ color: "#00C897"}}> Log out</Text>
           </TouchableOpacity>

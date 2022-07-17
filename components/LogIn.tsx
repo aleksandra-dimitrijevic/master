@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { TextInput, Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import { SERVER_URL } from "../constants/Api";
-import { User } from "../types/User";
+import { storeCurrentUser, User } from "../types/User";
 import Input from "./Input";
 //import {  Text, View} from "./Themed";
 type LogInProps = {
@@ -24,6 +24,7 @@ export default function LogIn (props: LogInProps) {
             } else {
                 alert('Successful login!')
                 props.setUser(json.customer);
+                storeCurrentUser(json.customer);
                 //alert(JSON.stringify(json.customer))
             }
         } catch(error){

@@ -1,15 +1,19 @@
-import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
-import { useForm} from 'react-hook-form'
-import Input from "./Input";
+import { useForm } from "react-hook-form";
+import { TextInput, Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import { SERVER_URL } from "../constants/Api";
-
-export default function Register({ navigation }: any) {
+import { User } from "../types/User";
+import Input from "./Input";
+//import {  Text, View} from "./Themed";
+type LogInProps = {
+    setUser : ( user: User) => void;
+}
+export default function LogIn (props: LogInProps) {
 
     const { control, handleSubmit } = useForm();
 
     const onSubmit = async (data:any) => {
         try {
-            const response = await fetch(SERVER_URL+'/users/' , {
+            const response = await fetch(SERVER_URL+'/users/login' , {
                 method:'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
@@ -18,8 +22,9 @@ export default function Register({ navigation }: any) {
             if( response.status>399){
                 alert(json.msg)
             } else {
-                alert('Successful registration, please log in!')
-                navigation.navigate('TabThree')
+                alert('Successful login!')
+                props.setUser(json.customer);
+                //alert(JSON.stringify(json.customer))
             }
         } catch(error){
             alert("Error, please try again");
@@ -28,16 +33,13 @@ export default function Register({ navigation }: any) {
 
     return (
         <View style={styles.container}>
-            <Input placeholder="First Name"  name="firstName" control={control} rules={{ required: true }}></Input>
-            <Input placeholder="Last Name" name="lastName" control={control} rules={{ required: true }}></Input>
             <Input placeholder="E-mail" name="email" control={control} rules={{ required: true }}></Input>
-            <Input placeholder="Phone number" name="phone" control={control}></Input>
             <Input placeholder="Password" name="password" secureTextEntry={true} control={control} rules={{ required: true }}></Input>
             <TouchableOpacity
-                style={{ padding: 8, backgroundColor: "#00C897", borderRadius: 5, width: '90%' }}
+                style={{ padding: 8, backgroundColor: "#00C897", borderRadius: 5, width:'90%' }}
                 onPress={handleSubmit(onSubmit)}
-            >
-                <Text style={{ color: "white", textAlign: "center" }}> REGISTER</Text>
+                >
+                <Text style={{ color: "white", textAlign:"center" }}> LOG IN</Text>
             </TouchableOpacity>
         </View>
     )
@@ -45,9 +47,10 @@ export default function Register({ navigation }: any) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        alignItems: "center",
-        paddingTop: 32,
-        backgroundColor: 'rgb(232,232,232)',
+      alignItems: "center",
+      paddingTop: 32,
+      backgroundColor: 'rgb(232,232,232)',
+      //justifyContent: "center",
+      width:'100%'
     }
-});
+  });

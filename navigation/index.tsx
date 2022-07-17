@@ -55,7 +55,7 @@ function RootNavigator() {
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
-        {/* <Stack.Screen name="RegistrationModal" component={Register} /> */}
+        <Stack.Screen name="Register" component={Register} />
       </Stack.Group>
     </Stack.Navigator>
   );

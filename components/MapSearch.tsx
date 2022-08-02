@@ -5,21 +5,16 @@ import React, { useState } from "react";
 import pinIcon from "./green-pin.png";
 import DateTimePicker from "react-native-modal-datetime-picker";
 import { Location } from "../types";
+import { SERVER_URL } from "../constants/Api";
+import { fetchAddress, RideSearch } from "../types/Rides";
+
+type MapSearchProps = {
+  showMap : () => void,
+  setRides: (rides: RideSearch[]) => void,
+}
 
 
-const fetchAddress = async (latitude: number, longitude: number) => {
-  try {
-    const response = await fetch(
-      `http://api.positionstack.com/v1/reverse?access_key=f1e15b07199675967ec63b981354a130&query=${latitude},${longitude}&limit=1`
-    );
-    const { data } = await response.json();
-    return data[0].label;
-  } catch (e) {
-    alert(e);
-  }
-};
-
-export default function MapSearch() {
+export default function MapSearch(props: MapSearchProps) {
   const [label, setLabel] = useState("");
   const [start, setStart] = useState<Location>( { latitude: 44.811879, longitude: 20.464239, label:'' });
   const [finish, setFinish] = useState<Location>({ latitude: 44.811879, longitude: 20.477285, label:''});
@@ -38,6 +33,21 @@ export default function MapSearch() {
     setDate(date);
     hideDatePicker();
   };
+
+  const onSearch = async () => {
+    try {
+        const response = await fetch(SERVER_URL+'/rides/search?lat1='+start.latitude+'&long1='+start.longitude+ '&lat2='+finish.latitude+'&long2='+finish.longitude);
+        const json = await response.json();
+        if( response.status>399){
+            alert(json.msg)
+        } else {
+            props.setRides(json.response);
+            props.showMap();
+        }
+    } catch(error){
+        alert("Error, please try again");
+    }
+}
 
   return (
     <View
@@ -128,7 +138,7 @@ export default function MapSearch() {
             </TouchableOpacity>
            
             <View style ={{marginTop:8}}>
-              <Button color="#00C897" title="Search" onPress={() => alert('Search')} />
+              <Button color="#00C897" title="Search" onPress={onSearch} />
             </View>
         
       </View>

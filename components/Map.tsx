@@ -4,24 +4,13 @@ import React, { useState } from "react";
 import { FontAwesome } from '@expo/vector-icons';
 import pinIcon from "./green-pin.png";
 import { Location } from "../types";
+import { fetchAddress } from "../types/Rides";
 
 type MapProps = {
   showMap : () => void,
   setCoordinates: (coordinates: Location[]) => void,
   coordinates: Location[]
 }
-
-const fetchAddress = async (latitude: number, longitude: number) => {
-  try {
-    const response = await fetch(
-      `http://api.positionstack.com/v1/reverse?access_key=f1e15b07199675967ec63b981354a130&query=${latitude},${longitude}&limit=1`
-    );
-    const { data } = await response.json();
-    return data[0].label;
-  } catch (e) {
-    alert(e);
-  }
-};
 
 export default function Map(props: MapProps) {
   const [label, setLabel] = useState("");

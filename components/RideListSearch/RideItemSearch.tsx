@@ -1,28 +1,32 @@
+import { FontAwesome } from '@expo/vector-icons';
 import { StyleSheet, Text, View } from 'react-native';
 
 import { Ride, RideSearch } from '../../types/Rides';
+import RideDriver from './RideDriver';
+import RideStationSearch from './RideStationSearch';
+import RideTime from './RideTime';
 
 type RideItemSearchProps = {
     ride: RideSearch
 }
 export default function RideItemSearch(props: RideItemSearchProps) {
-    
+    const driver = props.ride.ride.driver;
+    const ride = props.ride.ride;
+
     return (
         <View style={styles.item}>
-            <Text style={{color:'black'}}>Driver: {props.ride.ride.driver.firstName +' '+props.ride.ride.driver.lastName}</Text>
-            <Text style={{color:'black'}}>Date: {new Date(props.ride.ride.date).toLocaleDateString()}</Text>
-            <Text style={{color:'black'}}>Time: {new Date(props.ride.ride.date).toLocaleTimeString([],{ hour: '2-digit', minute: '2-digit'})}</Text>
-            <Text style={{color:'black'}}>Passengers: {props.ride.ride.passengersNumber}</Text>
-            <Text style={{color:'black'}}>Stops: </Text>
-            { props.ride.ride.stops.map((stop, index) => <View key={''+stop.location.coordinates[1]+stop.location.coordinates[0]}>
-                { index === props.ride.start && <Text style={styles.stationStart}> {index+1} {stop.label}</Text>}
-                { index === props.ride.finish && <Text style={styles.stationEnd}> {index+1} {stop.label}</Text>}
-                { index !== props.ride.start && index !== props.ride.finish && <Text style={{color:'black'}}> {index+1} {stop.label}</Text>}
-            </View>)}
+            <RideTime time={ride.date}/>
+            <RideDriver driver={driver}/>
+            {ride.stops.map((stop, index) =>
+                <RideStationSearch
+                    stop={stop}
+                    blur={index < props.ride.start || index > props.ride.finish}
+                    key={stop.location.coordinates[1] + stop.location.coordinates[0]} />
+            )}
         </View>
     );
 
-    }
+}
 
 const styles = StyleSheet.create({
     item: {
@@ -31,12 +35,6 @@ const styles = StyleSheet.create({
         marginBottom: 16,
         borderRadius: 10,
         padding: 16,
-        width: '90%',
-    },
-    stationStart: {
-        color:'green'
-    },
-    stationEnd:{
-        color:'red'
+        width: '100%',
     }
 });

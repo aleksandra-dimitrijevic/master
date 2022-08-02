@@ -9,15 +9,12 @@ type RideListSearch = {
 }
 
 export default function RideListSearch(props: RideListSearch) {
-    useEffect(() => {
-        alert('RIDES:'+JSON.stringify(props.rides))
-        console.log(props.rides)
-      }, []);
+
     return (
         <View style={styles.container}>
             <View style={{ alignItems: "flex-start", width: 400, marginLeft: 16 }}>
                 <TouchableOpacity
-                    style={{ padding: 8, backgroundColor: "#00C897", borderRadius: 15, marginTop:16 }}
+                    style={styles.backButton}
                     onPress={() => props.showMap()}
                 >
                     <Text style={{ color: "white" }}> {"<- SEARCH"}</Text>
@@ -40,6 +37,12 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '100%',
         alignItems: 'center',
-        backgroundColor:'white'
+        backgroundColor: 'white'
+    },
+    backButton: {
+        padding: 8,
+        backgroundColor: "#00C897",
+        borderRadius: 15,
+        marginTop: 16
     }
 });

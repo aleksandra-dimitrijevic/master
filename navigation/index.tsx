@@ -16,6 +16,7 @@ import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import RidesScreen from '../screens/RidesScreen';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
@@ -104,6 +105,14 @@ function BottomTabNavigator() {
         options={{
           title: 'Add Ride',
           tabBarIcon: ({ color }) => <TabBarIcon name="plus-square-o" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="TabRides"
+        component={RidesScreen}
+        options={{
+          title: 'Rides',
+          tabBarIcon: ({ color }) => <TabBarIcon name='car' color={color}/>,
         }}
       />
       <BottomTab.Screen

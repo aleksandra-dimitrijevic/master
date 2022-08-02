@@ -8,7 +8,7 @@ import { SERVER_URL } from "../constants/Api";
 import { StackRouter } from "@react-navigation/native";
 import { getCurrentUser } from "../types/User";
 
-export default function TabTwoScreen() {
+export default function TabTwoScreen( {navigation}:any) {
   const [showMap, setShowMap] = useState(true);
   const [coordinates, setCoordinates] = useState<Location[]>([]);
   const [date, setDate] = useState<Date>(new Date());
@@ -37,6 +37,7 @@ export default function TabTwoScreen() {
             alert(json.msg)
         } else {
             alert('Ride successfully added!')
+            navigation.navigate('TabRides')
         }
     } catch(error){
         alert("Error, please try again");

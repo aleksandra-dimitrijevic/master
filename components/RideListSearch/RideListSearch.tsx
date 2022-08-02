@@ -20,12 +20,11 @@ export default function RideListSearch(props: RideListSearch) {
                     <Text style={{ color: "white" }}> {"<- SEARCH"}</Text>
                 </TouchableOpacity>
             </View>
-            <Text>Search Results</Text>
-            <ScrollView style={{ flex: 1 }}>
+        
+            <ScrollView style={{ flex: 1, width:'100%' }}  contentContainerStyle={{ padding: 16 }}>
                 {props.rides.map(ride =>
                     <RideItemSearch ride={ride} key={ride.ride._id} />
                 )}
-                <View style={{ height: 64 }}></View>
             </ScrollView>
 
         </View>

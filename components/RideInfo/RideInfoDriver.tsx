@@ -13,9 +13,29 @@ import MapStops from './MapStops';
 type RideInfoDriverProps = {
 
 }
-export default function RideInfoDriver({ route }: any) {
+export default function RideInfoDriver({ route, navigation }: any) {
     const { ride } = route.params;
     const driver = route.params.ride.driver;
+
+    const onDelete = async () => {
+        try {
+            const response = await fetch(SERVER_URL+'/rides/' , {
+                method:'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({_id: ride._id})
+            });
+            const json = await response.json();
+            if( response.status>399){
+                alert(json.msg)
+            } else {
+                alert('Ride deleted!')
+                navigation.navigate('TabRides')
+            }
+        } catch(error){
+            alert("Error, please try again");
+        }
+    }
+    
    
     return (
         <ScrollView style={styles.container}  contentContainerStyle={{ padding: 16}}>
@@ -46,6 +66,10 @@ export default function RideInfoDriver({ route }: any) {
                     rideId = {ride._id}
                 />
             )}
+
+            <TouchableOpacity onPress={onDelete} style={{margin:32}}>
+                <Text style={{color:'red', textAlign:'center'}}>Delete</Text>
+            </TouchableOpacity>
             
         </ScrollView>
     );

@@ -17,7 +17,7 @@ type RideItemSearchProps = {
 export default function RideItemSearch(props: RideItemSearchProps) {
     const driver = props.ride.driver;
     const ride = props.ride;
-
+    
     return (
         <TouchableOpacity style={styles.item} onPress={() => props.navigation.navigate('RideInfo', { ride, start: props.start, finish: props.finish })}>
             <View style={{flexDirection:'row', justifyContent:'space-between'}}>

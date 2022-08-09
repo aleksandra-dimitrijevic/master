@@ -17,6 +17,8 @@ export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
   Modal: undefined;
   Register: undefined;
+  RideInfo:undefined;
+  RideInfoDriver: undefined;
   NotFound: undefined;
 };
 

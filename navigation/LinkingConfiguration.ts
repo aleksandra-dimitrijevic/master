@@ -39,6 +39,8 @@ const linking: LinkingOptions<RootStackParamList> = {
       },
       Modal: 'modal',
       Register: 'register',
+      RideInfo: 'rideinfo',
+      RideInfoDriver: 'rideinfodriver',
       NotFound: '*',
     },
   },

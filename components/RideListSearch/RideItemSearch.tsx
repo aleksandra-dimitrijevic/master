@@ -1,29 +1,43 @@
 import { FontAwesome } from '@expo/vector-icons';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { Ride, RideSearch } from '../../types/Rides';
+import RideDate from './RideDate';
 import RideDriver from './RideDriver';
+import RideSeats from './RideSeats';
 import RideStationSearch from './RideStationSearch';
 import RideTime from './RideTime';
 
 type RideItemSearchProps = {
-    ride: RideSearch
+    ride: Ride,
+    navigation: any,
+    start: number,
+    finish: number
 }
 export default function RideItemSearch(props: RideItemSearchProps) {
-    const driver = props.ride.ride.driver;
-    const ride = props.ride.ride;
+    const driver = props.ride.driver;
+    const ride = props.ride;
 
     return (
-        <View style={styles.item}>
-            <RideTime time={ride.date}/>
-            <RideDriver driver={driver}/>
+        <TouchableOpacity style={styles.item} onPress={() => props.navigation.navigate('RideInfo', { ride, start: props.start, finish: props.finish })}>
+            <View style={{flexDirection:'row', justifyContent:'space-between'}}>
+                <View>
+                    <RideDriver driver={driver} />
+                    <RideSeats passengersNumber={ride.passengersNumber} available={ride.availableSeats} />
+                </View>
+                <View>
+                    <RideDate date={ride.date}/>
+                    <RideTime time={ride.date} />
+                </View>
+            </View>
+            
             {ride.stops.map((stop, index) =>
                 <RideStationSearch
                     stop={stop}
-                    blur={index < props.ride.start || index > props.ride.finish}
+                    blur={index < props.start || index > props.finish}
                     key={stop.location.coordinates[1] + stop.location.coordinates[0]} />
             )}
-        </View>
+        </TouchableOpacity>
     );
 
 }

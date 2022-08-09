@@ -16,7 +16,13 @@ export type Ride = {
     driver: User;
     passengersNumber: number;
     date: Date;
-    stops: [Stop]
+    stops: [Stop],
+    availableSeats:number,
+    passengers: [{
+      user: User,
+      start: number,
+      finish: number
+    }]
 }
 
 export type RideSearch = {

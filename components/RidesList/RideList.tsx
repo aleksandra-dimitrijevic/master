@@ -36,10 +36,9 @@ export default function RideList({navigation}: any) {
       }, []);
     return (
         <View style={styles.container}>
-            <Text>Rides</Text>
             <ScrollView style={{flex:1, width: '100%'}} contentContainerStyle={{ padding: 16 }}>
                 { rides.map( ride => 
-                    <RideItem ride={ride} key={ride._id}/>
+                    <RideItem ride={ride} key={ride._id} navigation={navigation}/>
                 )}
             </ScrollView>
             

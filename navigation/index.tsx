@@ -10,6 +10,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { ColorSchemeName, Pressable } from 'react-native';
 import Register from '../components/Register';
+import RideInfo from '../components/RideInfo/RideInfo';
+import RideInfoDriver from '../components/RideInfo/RideInfoDriver';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
@@ -57,6 +59,8 @@ function RootNavigator() {
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
         <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="RideInfo" component={RideInfo} />
+        <Stack.Screen name="RideInfoDriver" component={RideInfoDriver} />
       </Stack.Group>
     </Stack.Navigator>
   );

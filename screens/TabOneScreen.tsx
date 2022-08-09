@@ -21,6 +21,7 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
         <RideListSearch
           showMap={() => setShowMap(true)}
           rides = {rides}
+          navigation = {navigation}
         ></RideListSearch>
       )}
 

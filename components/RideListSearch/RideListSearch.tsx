@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { RideSearch } from '../../types/Rides';
 import RideItemSearch from './RideItemSearch';
@@ -6,6 +5,7 @@ import RideItemSearch from './RideItemSearch';
 type RideListSearch = {
     showMap: () => void,
     rides: RideSearch[],
+    navigation: any
 }
 
 export default function RideListSearch(props: RideListSearch) {
@@ -23,7 +23,12 @@ export default function RideListSearch(props: RideListSearch) {
         
             <ScrollView style={{ flex: 1, width:'100%' }}  contentContainerStyle={{ padding: 16 }}>
                 {props.rides.map(ride =>
-                    <RideItemSearch ride={ride} key={ride.ride._id} />
+                    <RideItemSearch 
+                        ride={ride.ride} 
+                        start={ride.start} 
+                        finish={ride.finish} 
+                        key={ride.ride._id} 
+                        navigation={props.navigation}/>
                 )}
             </ScrollView>
 

@@ -7,6 +7,7 @@ export type User = {
     password: number;
     phone?: string;
     email:string;
+    token: string;
 }
 
 export const storeCurrentUser = async (user: User) => {

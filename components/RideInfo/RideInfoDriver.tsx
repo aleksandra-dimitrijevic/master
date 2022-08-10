@@ -1,9 +1,8 @@
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { SERVER_URL } from '../../constants/Api';
+import { request } from '../../services/request';
 import { Stop } from '../../types/Rides';
-import { getCurrentUser, User } from '../../types/User';
+import { User } from '../../types/User';
 import RideDate from '../RideListSearch/RideDate';
-import RideDriver from '../RideListSearch/RideDriver';
 import RideSeats from '../RideListSearch/RideSeats';
 import RideStationSearch from '../RideListSearch/RideStationSearch';
 import RideTime from '../RideListSearch/RideTime';
@@ -19,18 +18,14 @@ export default function RideInfoDriver({ route, navigation }: any) {
 
     const onDelete = async () => {
         try {
-            const response = await fetch(SERVER_URL+'/rides/' , {
-                method:'DELETE',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({_id: ride._id})
-            });
-            const json = await response.json();
-            if( response.status>399){
-                alert(json.msg)
-            } else {
-                alert('Ride deleted!')
-                navigation.navigate('TabRides')
-            }
+            const json = await request({
+                url: '/rides/',
+                method: 'DELETE',
+                body: {_id: ride._id}
+            })
+            alert('Ride deleted!')
+            navigation.navigate('TabRides')
+            
         } catch(error){
             alert("Error, please try again");
         }

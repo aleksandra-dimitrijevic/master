@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import RidePassengerListSearch from '../components/RidePassengerList/RidePassengerList';
 import RideList from '../components/RidesList/RideList';
-import { RootTabScreenProps } from '../types';
+
 
 export default function RidesScreen({ navigation, route }: any) {
 

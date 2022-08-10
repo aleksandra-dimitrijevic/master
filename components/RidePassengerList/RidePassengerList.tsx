@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SERVER_URL } from '../../constants/Api';
+import { request } from '../../services/request';
 import { Ride } from '../../types/Rides';
 import { getCurrentUser, User } from '../../types/User';
 import RideItemSearch from '../RideListSearch/RideItemSearch';
@@ -22,17 +23,15 @@ export default function RidePassengerListSearch(props: RidePassengerListSearch) 
             setUser(user);
             if(!user) alert('Please log in, to see your rides.')
             else {
-                const response = await fetch(SERVER_URL+'/rides/passenger?passenger='+user._id);
-                const json = await response.json();
-                if( response.status>399){
-                    alert(json.msg)
-                } else {
-                    setRides(json.rides)
-                }
+                const json = await request({
+                    url: '/rides/passenger',
+                    queryParams: { passenger: user._id},
+                    method: 'GET'
+                })
+                setRides(json.rides)
             }
             
         } catch(error){
-            console.log(error)
             alert("Error, please try again");
         }
     }

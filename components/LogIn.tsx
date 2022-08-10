@@ -23,9 +23,8 @@ export default function LogIn (props: LogInProps) {
                 alert(json.msg)
             } else {
                 alert('Successful login!')
-                props.setUser(json.customer);
-                storeCurrentUser(json.customer);
-                //alert(JSON.stringify(json.customer))
+                props.setUser(json.user);
+                storeCurrentUser(json.user);
             }
         } catch(error){
             alert("Error, please try again");

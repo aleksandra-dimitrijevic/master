@@ -4,9 +4,8 @@ import AddRideInfo from "../components/AddRideInfo";
 import Map from "../components/Map";
 import { useState } from "react";
 import { Location } from "../types";
-import { SERVER_URL } from "../constants/Api";
-import { StackRouter } from "@react-navigation/native";
 import { getCurrentUser } from "../types/User";
+import { request } from "../services/request";
 
 export default function TabTwoScreen( {navigation}:any) {
   const [showMap, setShowMap] = useState(true);
@@ -27,18 +26,15 @@ export default function TabTwoScreen( {navigation}:any) {
           driver: user._id,
           stops: coordinates
         }
-        const response = await fetch(SERVER_URL+'/rides' , {
-            method:'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        });
-        const json = await response.json();
-        if( response.status>399){
-            alert(json.msg)
-        } else {
-            alert('Ride successfully added!')
-            navigation.navigate('TabRides')
-        }
+        const json = await request({
+          url: '/rides',
+          method: 'POST',
+          body: data
+      })
+
+      alert('Ride successfully added!')
+      navigation.navigate('TabRides')
+       
     } catch(error){
         alert("Error, please try again");
     }

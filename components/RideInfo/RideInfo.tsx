@@ -2,6 +2,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SERVER_URL } from '../../constants/Api';
+import { request } from '../../services/request';
 import { Stop } from '../../types/Rides';
 import { getCurrentUser } from '../../types/User';
 import RideDate from '../RideListSearch/RideDate';
@@ -25,7 +26,6 @@ export default function RideInfo({ route, navigation }: any) {
             if(route.params.ride.passengers.find( (p: { user: { _id: any; }; }) => p.user ===user._id || p.user?._id=== user._id)) setApplied(true)
             
         } catch(error){
-            console.log(error)
             alert("Error, please try again");
         }
     }
@@ -40,18 +40,16 @@ export default function RideInfo({ route, navigation }: any) {
               user: user._id,
               _id: ride._id
             }
-            const response = await fetch(SERVER_URL+'/rides/remove-passenger' , {
-                method:'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            });
-            const json = await response.json();
-            if( response.status>399){
-                alert(json.msg)
-            } else {
-                alert(json.msg)
-                setApplied(false)
-            }
+
+            const json = await request({
+                url: '/rides/remove-passenger',
+                method: 'POST',
+                body: data
+            })
+            
+            alert(json.msg)
+            setApplied(false)
+            
         } catch(error){
             alert("Error, please try again");
         }
@@ -62,24 +60,23 @@ export default function RideInfo({ route, navigation }: any) {
         try {
             const user = await getCurrentUser();
             if(!user) alert("Please log in to apply!")
+
             const data = {
               start,
               finish,
               user: user._id,
               _id: ride._id
             }
-            const response = await fetch(SERVER_URL+'/rides/apply' , {
-                method:'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            });
-            const json = await response.json();
-            if( response.status>399){
-                alert(json.msg)
-            } else {
-                alert(json.msg)
-                navigation.navigate('TabRides')
-            }
+
+            const json = await request({
+                url: '/rides/apply',
+                method: 'POST',
+                body: data
+            })
+            
+            alert(json.msg)
+            navigation.navigate('TabRides', {passenger: true})
+            
         } catch(error){
             alert("Error, please try again");
         }

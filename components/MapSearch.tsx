@@ -1,12 +1,11 @@
 import { View, Text, Button, StyleSheet, ScrollView, TouchableOpacity } from "react-native";
-import MapView, { Marker, MapEvent } from "react-native-maps";
+import MapView, { Marker} from "react-native-maps";
 import React, { useState } from "react";
-
 import pinIcon from "./green-pin.png";
 import DateTimePicker from "react-native-modal-datetime-picker";
 import { Location } from "../types";
-import { SERVER_URL } from "../constants/Api";
 import { fetchAddress, RideSearch } from "../types/Rides";
+import { request } from "../services/request";
 
 type MapSearchProps = {
   showMap : () => void,
@@ -36,14 +35,19 @@ export default function MapSearch(props: MapSearchProps) {
 
   const onSearch = async () => {
     try {
-        const response = await fetch(SERVER_URL+'/rides/search?lat1='+start.latitude+'&long1='+start.longitude+ '&lat2='+finish.latitude+'&long2='+finish.longitude);
-        const json = await response.json();
-        if( response.status>399){
-            alert(json.msg)
-        } else {
-            props.setRides(json.response);
-            props.showMap();
+      const json = await request({
+        url: '/rides/search',
+        method: 'GET',
+        queryParams: {
+          'lat1': start.latitude,
+          'long1':start.longitude,
+          'lat2':finish.latitude,
+          'long2':finish.longitude
         }
+      })
+      props.setRides(json.response);
+      props.showMap();
+       
     } catch(error){
         alert("Error, please try again");
     }

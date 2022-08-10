@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import { SERVER_URL } from '../../constants/Api';
+import { request } from '../../services/request';
 import { Ride } from '../../types/Rides';
 import { getCurrentUser } from '../../types/User';
 import RideItem from './RideItem';
@@ -13,13 +13,12 @@ export default function RideList({navigation}: any) {
             const user = await getCurrentUser();
             if(!user) alert('Please log in, to see your rides.')
             else {
-                const response = await fetch(SERVER_URL+'/rides/driver?driver='+user._id);
-                const json = await response.json();
-                if( response.status>399){
-                    alert(json.msg)
-                } else {
-                    setRides(json.rides)
-                }
+                const json = await request({
+                    url: '/rides/driver',
+                    queryParams: { driver: user._id},
+                    method: 'GET'
+                })
+                setRides(json.rides)
             }
             
         } catch(error){

@@ -2,6 +2,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SERVER_URL } from '../../constants/Api';
+import { request } from '../../services/request';
 import { Stop } from '../../types/Rides';
 import { User } from '../../types/User';
 import RideStationSearch from '../RideListSearch/RideStationSearch';
@@ -22,18 +23,16 @@ export default function Passenger(props: PassengerProps) {
               user: user._id,
               _id: rideId
             }
-            const response = await fetch(SERVER_URL+'/rides/remove-passenger' , {
-                method:'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            });
-            const json = await response.json();
-            if( response.status>399){
-                alert(json.msg)
-            } else {
-                alert(json.msg)
-                setDeleted(true);
-            }
+            
+            const json = await request({
+                url: '/rides/remove-passenger',
+                method: 'POST',
+                body: data
+            })
+           
+            alert(json.msg)
+            setDeleted(true);
+           
         } catch(error){
             alert("Error, please try again");
         }

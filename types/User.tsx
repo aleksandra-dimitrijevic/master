@@ -8,6 +8,7 @@ export type User = {
     phone?: string;
     email:string;
     token: string;
+    image?: string;
 }
 
 export const storeCurrentUser = async (user: User) => {

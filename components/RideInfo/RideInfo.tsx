@@ -1,7 +1,6 @@
 import { FontAwesome } from '@expo/vector-icons';
 import { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { SERVER_URL } from '../../constants/Api';
 import { request } from '../../services/request';
 import { Stop } from '../../types/Rides';
 import { getCurrentUser } from '../../types/User';

@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { SERVER_URL } from '../../constants/Api';
 import { request } from '../../services/request';
 import { Ride } from '../../types/Rides';
 import { getCurrentUser, User } from '../../types/User';
 import RideItemSearch from '../RideListSearch/RideItemSearch';
-import RideItem from '../RidesList/RideItem';
 
 
 type RidePassengerListSearch = {

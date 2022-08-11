@@ -1,7 +1,6 @@
 import { FontAwesome } from '@expo/vector-icons';
 import { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { SERVER_URL } from '../../constants/Api';
 import { request } from '../../services/request';
 import { Stop } from '../../types/Rides';
 import { User } from '../../types/User';
@@ -23,7 +22,7 @@ export default function Passenger(props: PassengerProps) {
               user: user._id,
               _id: rideId
             }
-            
+
             const json = await request({
                 url: '/rides/remove-passenger',
                 method: 'POST',

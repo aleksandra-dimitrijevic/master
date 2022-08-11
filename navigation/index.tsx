@@ -9,6 +9,9 @@ import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { ColorSchemeName, Pressable } from 'react-native';
+import ChangePassword from '../components/ChangePassword';
+import EditUserInfo from '../components/EditUserInfo';
+import PublicProfile from '../components/PublicProfile';
 import Register from '../components/Register';
 import RideInfo from '../components/RideInfo/RideInfo';
 import RideInfoDriver from '../components/RideInfo/RideInfoDriver';
@@ -61,6 +64,9 @@ function RootNavigator() {
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="RideInfo" component={RideInfo} />
         <Stack.Screen name="RideInfoDriver" component={RideInfoDriver} />
+        <Stack.Screen name="EditUserInfo" component={EditUserInfo} />
+        <Stack.Screen name="ChangePassword" component={ChangePassword} />
+        <Stack.Screen name="PublicProfile" component={PublicProfile} />
       </Stack.Group>
     </Stack.Navigator>
   );

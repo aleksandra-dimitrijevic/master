@@ -19,6 +19,9 @@ export type RootStackParamList = {
   Register: undefined;
   RideInfo:undefined;
   RideInfoDriver: undefined;
+  EditUserInfo: undefined;
+  PublicProfile: undefined;
+  ChangePassword: undefined;
   NotFound: undefined;
 };
 

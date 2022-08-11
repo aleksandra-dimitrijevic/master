@@ -1,4 +1,3 @@
-import { FontAwesome } from '@expo/vector-icons';
 import { StyleSheet, Text, View } from 'react-native';
 import { User } from '../types/User';
 
@@ -6,7 +5,8 @@ type UserInfoProps = {
     user: User
 }
 export default function UserInfo(props: UserInfoProps) {
-    const { user } = props
+    const { user } = props;
+
     return (
         <View style={{alignItems:'center'}}>
             <Text style={styles.name}>
@@ -21,8 +21,7 @@ export default function UserInfo(props: UserInfoProps) {
                     <Text style={{fontWeight:'bold'}}>Email: </Text>
                     {user.email}
                 </Text>
-            </View>
-            
+            </View> 
         </View>
     );
 }
@@ -39,6 +38,7 @@ const styles = StyleSheet.create({
         borderColor: 'lightgrey',
         borderRadius: 10,
         padding: 16,
-        width: 300
+        width: 300,
+        marginBottom:16
     }
 });

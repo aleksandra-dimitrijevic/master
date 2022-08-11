@@ -9,6 +9,12 @@ export type User = {
     email:string;
     token: string;
     image?: string;
+    score: number;
+    ratesNumber: number;
+    rates:{
+      user: string,
+      rate: number
+    }[]
 }
 
 export const storeCurrentUser = async (user: User) => {

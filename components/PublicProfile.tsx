@@ -4,6 +4,8 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import UserInfo from '../components/UserInfo';
 import { SERVER_URL } from '../constants/Api';
 import { User } from '../types/User';
+import { Rating, AirbnbRating } from 'react-native-ratings';
+import RateComponent from './Rate';
 
 type PublicProfileProps = {
 
@@ -11,9 +13,7 @@ type PublicProfileProps = {
 function PublicProfile({ route }: any) {
 
     const { driver } = route.params;
-    const image = driver.image;
-
-    console.log(driver);
+    const image = driver.image;    
 
     return (
         <View style={styles.container}>
@@ -24,6 +24,7 @@ function PublicProfile({ route }: any) {
             />
             <FontAwesome size={100} name='user-o' color='black' style={!image ? styles.cameraIcon : styles.hide} />
             <UserInfo user={driver} />
+            <RateComponent user={driver}/>
         </View>
     )
 }
@@ -33,8 +34,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         paddingTop: 32,
-        backgroundColor: 'rgb(232,232,232)',
-        // justifyContent: "center",
+        backgroundColor: 'white',
     },
     cameraIcon: {
         borderWidth: 3,

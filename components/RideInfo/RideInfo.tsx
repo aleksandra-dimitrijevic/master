@@ -86,7 +86,7 @@ export default function RideInfo({ route, navigation }: any) {
         <ScrollView style={styles.container}  contentContainerStyle={{ padding: 16}}>
             <View style={{flexDirection:'row', justifyContent:'space-between'}}>
                 <View>
-                    <RideDriver driver={driver} />
+                    <RideDriver driver={driver} navigation={navigation}/>
                     <View style={{flexDirection:'row', marginBottom:16}}>
                             <FontAwesome size={20} name='phone' color='black'/>
                             <Text style={{color:'black', marginLeft:16}}>

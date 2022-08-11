@@ -22,7 +22,7 @@ export default function RideItemSearch(props: RideItemSearchProps) {
         <TouchableOpacity style={styles.item} onPress={() => props.navigation.navigate('RideInfo', { ride, start: props.start, finish: props.finish })}>
             <View style={{flexDirection:'row', justifyContent:'space-between'}}>
                 <View>
-                    <RideDriver driver={driver} />
+                    <RideDriver driver={driver} navigation={props.navigation}/>
                     <RideSeats passengersNumber={ride.passengersNumber} available={ride.availableSeats} />
                 </View>
                 <View>

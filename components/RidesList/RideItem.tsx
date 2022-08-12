@@ -4,7 +4,7 @@ import { Ride } from '../../types/Rides';
 import RideDate from '../RideListSearch/RideDate';
 import RideDriver from '../RideListSearch/RideDriver';
 import RideSeats from '../RideListSearch/RideSeats';
-import RideStationSearch from '../RideListSearch/RideStationSearch';
+import StopComponent from '../RideListSearch/StopComponent';
 import RideTime from '../RideListSearch/RideTime';
 
 type RideItemProps = {
@@ -26,7 +26,7 @@ export default function RideItem(props: RideItemProps) {
             </View>
             
             {ride.stops.map( stop => 
-                <RideStationSearch
+                <StopComponent
                     stop={stop}
                     blur={false}
                     key={stop.location.coordinates[1] + stop.location.coordinates[0]} />

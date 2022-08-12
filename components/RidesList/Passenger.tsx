@@ -4,7 +4,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { request } from '../../services/request';
 import { Stop } from '../../types/Rides';
 import { User } from '../../types/User';
-import RideStationSearch from '../RideListSearch/RideStationSearch';
+import StopComponent from '../RideListSearch/StopComponent';
 
 type PassengerProps = {
     user: User,
@@ -54,12 +54,12 @@ export default function Passenger(props: PassengerProps) {
                 </View>
             </View>
             
-            <RideStationSearch
+            <StopComponent
                     stop={start}
                     blur={false}
                     key={start.location.coordinates[1] + start.location.coordinates[0]} 
             />
-            <RideStationSearch
+            <StopComponent
                     stop={finish}
                     blur={false}
                     key={finish.location.coordinates[1] + finish.location.coordinates[0]} 

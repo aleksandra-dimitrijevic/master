@@ -7,7 +7,7 @@ import { getCurrentUser } from '../../types/User';
 import RideDate from '../RideListSearch/RideDate';
 import RideDriver from '../RideListSearch/RideDriver';
 import RideSeats from '../RideListSearch/RideSeats';
-import RideStationSearch from '../RideListSearch/RideStationSearch';
+import StopComponent from '../RideListSearch/StopComponent';
 import RideTime from '../RideListSearch/RideTime';
 import MapStops from './MapStops';
 
@@ -102,7 +102,7 @@ export default function RideInfo({ route, navigation }: any) {
             
             <RideSeats passengersNumber={ride.passengersNumber} available={ride.availableSeats} />
             {ride.stops.map((stop: Stop, index: number) =>
-                <RideStationSearch
+                <StopComponent
                     stop={stop}
                     blur={index < start || index > finish}
                     key={stop.location.coordinates[1] + stop.location.coordinates[0]} />

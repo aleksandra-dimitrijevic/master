@@ -2,11 +2,11 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import { Stop } from '../../types/Rides';
 
-type RideStationSearchProps = {
+type StopComponentProps = {
     stop: Stop,
     blur: boolean
 }
-export default function RideStationSearch(props: RideStationSearchProps) {
+export default function StopComponent(props: StopComponentProps) {
 
     return (
         <View style={props.blur ? [styles.item, styles.blurItem] : styles.item}>

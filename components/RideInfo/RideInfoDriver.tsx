@@ -4,7 +4,7 @@ import { Stop } from '../../types/Rides';
 import { User } from '../../types/User';
 import RideDate from '../RideListSearch/RideDate';
 import RideSeats from '../RideListSearch/RideSeats';
-import RideStationSearch from '../RideListSearch/RideStationSearch';
+import StopComponent from '../RideListSearch/StopComponent';
 import RideTime from '../RideListSearch/RideTime';
 import Passenger from '../RidesList/Passenger';
 import MapStops from './MapStops';
@@ -45,7 +45,7 @@ export default function RideInfoDriver({ route, navigation }: any) {
             </View>
             
             {ride.stops.map((stop: Stop, index: number) =>
-                <RideStationSearch
+                <StopComponent
                     stop={stop}
                     blur={false}
                     key={stop.location.coordinates[1] + stop.location.coordinates[0]} />

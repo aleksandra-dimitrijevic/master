@@ -11,7 +11,7 @@ import * as React from 'react';
 import { ColorSchemeName, Pressable } from 'react-native';
 import ChangePassword from '../components/ChangePassword';
 import EditUserInfo from '../components/EditUserInfo';
-import PublicProfile from '../components/MyProfile/PublicProfile';
+import PublicProfile from '../components/Profile/PublicProfile';
 import Register from '../components/Register';
 import RideInfo from '../components/RideInfo/RideInfo';
 import RideInfoDriver from '../components/RideInfo/RideInfoDriver';

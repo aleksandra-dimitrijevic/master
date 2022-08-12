@@ -47,6 +47,11 @@ export default function UserInfo(props: UserInfoProps) {
                         icon='envelope-o'
                         title={user.email}
                     />
+                    <ProfileMenuItem
+                        user={user}
+                        icon='car'
+                        title={user.car.model+', '+user.car.color}
+                    />
             </View>
         </View>
     );
@@ -64,8 +69,9 @@ const styles = StyleSheet.create({
     },
     menu:{
         width:'100%',
-        padding:32,
-        paddingBottom:0
+        paddingHorizontal:32,
+        paddingBottom:0,
+        paddingTop:8
     },
     title:{
         backgroundColor:'#ececec',

@@ -7,7 +7,7 @@ type ProfileMenuItem = {
     navigation?: any,
     user: User,
     path?: string,
-    icon: 'lock' | 'cog' | 'sign-out' | 'phone' | 'envelope-o' | 'star',
+    icon: 'lock' | 'cog' | 'sign-out' | 'phone' | 'envelope-o' | 'star' | 'car',
     title?: string | number,
     action?: () => void
 

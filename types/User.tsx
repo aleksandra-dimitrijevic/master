@@ -11,10 +11,15 @@ export type User = {
     image?: string;
     score: number;
     ratesNumber: number;
-    rates:{
+    rates: {
       user: string,
       rate: number
-    }[]
+    }[],
+    car: {
+      model: string,
+      registration: string,
+      color: string
+    }
 }
 
 export const storeCurrentUser = async (user: User) => {

@@ -4,7 +4,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { request } from '../../services/request';
 import { Stop } from '../../types/Rides';
 import { User } from '../../types/User';
-import StopComponent from '../RideListSearch/StopComponent';
+import StopComponent from '../Lists/commonInfo/StopComponent';
 
 type PassengerProps = {
     user: User,

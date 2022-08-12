@@ -1,7 +1,7 @@
 import { FontAwesome } from '@expo/vector-icons';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { SERVER_URL } from '../../constants/Api';
-import { User } from '../../types/User';
+import { SERVER_URL } from '../../../constants/Api';
+import { User } from '../../../types/User';
 
 type RideDriverProps = {
     driver: User,

@@ -2,10 +2,10 @@ import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-nati
 import { request } from '../../services/request';
 import { Stop } from '../../types/Rides';
 import { User } from '../../types/User';
-import RideDate from '../RideListSearch/RideDate';
-import RideSeats from '../RideListSearch/RideSeats';
-import StopComponent from '../RideListSearch/StopComponent';
-import RideTime from '../RideListSearch/RideTime';
+import RideDate from '../Lists/commonInfo/RideDate';
+import RideSeats from '../Lists/commonInfo/RideSeats';
+import StopComponent from '../Lists/commonInfo/StopComponent';
+import RideTime from '../Lists/commonInfo/RideTime';
 import Passenger from '../RidesList/Passenger';
 import MapStops from './MapStops';
 

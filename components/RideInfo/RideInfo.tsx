@@ -4,11 +4,11 @@ import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-nati
 import { request } from '../../services/request';
 import { Stop } from '../../types/Rides';
 import { getCurrentUser } from '../../types/User';
-import RideDate from '../RideListSearch/RideDate';
-import RideDriver from '../RideListSearch/RideDriver';
-import RideSeats from '../RideListSearch/RideSeats';
-import StopComponent from '../RideListSearch/StopComponent';
-import RideTime from '../RideListSearch/RideTime';
+import RideDate from '../Lists/commonInfo/RideDate';
+import RideDriver from '../Lists/commonInfo/RideDriver';
+import RideSeats from '../Lists/commonInfo/RideSeats';
+import StopComponent from '../Lists/commonInfo/StopComponent';
+import RideTime from '../Lists/commonInfo/RideTime';
 import MapStops from './MapStops';
 
 type RideInfoProps = {

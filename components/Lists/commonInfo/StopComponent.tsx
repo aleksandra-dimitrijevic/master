@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-import { Stop } from '../../types/Rides';
+import { Stop } from '../../../types/Rides';
 
 type StopComponentProps = {
     stop: Stop,

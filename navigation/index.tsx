@@ -13,8 +13,8 @@ import ChangePassword from '../components/Profile/ChangePassword';
 import EditUserInfo from '../components/Profile/EditUserInfo';
 import PublicProfile from '../components/Profile/PublicProfile';
 import Register from '../components/Register';
-import RideInfo from '../components/RideInfo/RideInfo';
-import RideInfoDriver from '../components/RideInfo/RideInfoDriver';
+import PassengersRideModal from '../components/Lists/RideDetailsModals/PassengersRideModal';
+import DriversRideModal from '../components/Lists/RideDetailsModals/DriversRideModal';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
@@ -62,8 +62,8 @@ function RootNavigator() {
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
         <Stack.Screen name="Register" component={Register} />
-        <Stack.Screen name="RideInfo" component={RideInfo} />
-        <Stack.Screen name="RideInfoDriver" component={RideInfoDriver} />
+        <Stack.Screen name="RideInfo" component={PassengersRideModal} />
+        <Stack.Screen name="RideInfoDriver" component={DriversRideModal} />
         <Stack.Screen name="EditUserInfo" component={EditUserInfo} />
         <Stack.Screen name="ChangePassword" component={ChangePassword} />
         <Stack.Screen name="PublicProfile" component={PublicProfile} />

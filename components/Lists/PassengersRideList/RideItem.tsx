@@ -1,20 +1,20 @@
 import { FontAwesome } from '@expo/vector-icons';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-import { Ride, RideSearch } from '../../types/Rides';
-import RideDate from '../Lists/commonInfo/RideDate';
-import RideDriver from '../Lists/commonInfo/RideDriver';
-import RideSeats from '../Lists/commonInfo/RideSeats';
-import StopComponent from '../Lists/commonInfo/StopComponent';
-import RideTime from '../Lists/commonInfo/RideTime';
+import { Ride, RideSearch } from '../../../types/Rides';
+import RideDate from '../commonInfo/RideDate';
+import RideDriver from '../commonInfo/RideDriver';
+import RideSeats from '../commonInfo/RideSeats';
+import StopComponent from '../commonInfo/StopComponent';
+import RideTime from '../commonInfo/RideTime';
 
-type RideItemSearchProps = {
+type RideItemProps = {
     ride: Ride,
     navigation: any,
     start: number,
     finish: number
 }
-export default function RideItemSearch(props: RideItemSearchProps) {
+export default function RideItem(props: RideItemProps) {
     const driver = props.ride.driver;
     const ride = props.ride;
     

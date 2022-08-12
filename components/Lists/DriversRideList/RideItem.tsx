@@ -1,11 +1,11 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-import { Ride } from '../../types/Rides';
-import RideDate from '../Lists/commonInfo/RideDate';
-import RideDriver from '../Lists/commonInfo/RideDriver';
-import RideSeats from '../Lists/commonInfo/RideSeats';
-import StopComponent from '../Lists/commonInfo/StopComponent';
-import RideTime from '../Lists/commonInfo/RideTime';
+import { Ride } from '../../../types/Rides';
+import RideDate from '../commonInfo/RideDate';
+import RideDriver from '../commonInfo/RideDriver';
+import RideSeats from '../commonInfo/RideSeats';
+import StopComponent from '../commonInfo/StopComponent';
+import RideTime from '../commonInfo/RideTime';
 
 type RideItemProps = {
     ride: Ride,

@@ -1,7 +1,7 @@
 import { SetStateAction, useState } from 'react';
 import { StyleSheet } from 'react-native';
 import MapSearch from '../components/MapSearch';
-import RideListSearch from '../components/RideListSearch/RideListSearch';
+import RideListSearch from '../components/Lists/PassengersRideList/RideListSearch';
 import { View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 import { RideSearch } from '../types/Rides';

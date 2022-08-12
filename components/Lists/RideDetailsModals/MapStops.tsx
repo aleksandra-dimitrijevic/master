@@ -1,8 +1,8 @@
 import { Text, StyleSheet, View } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import React from "react";
-import { Stop } from "../../types/Rides";
-import pinIcon from "../green-pin.png";
+import { Stop } from "../../../types/Rides";
+import pinIcon from "../../green-pin.png";
 
 type MapStopsProps = {
   stops: Stop[];

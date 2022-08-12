@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import { request } from '../../services/request';
-import { Ride } from '../../types/Rides';
-import { getCurrentUser } from '../../types/User';
+import { request } from '../../../services/request';
+import { Ride } from '../../../types/Rides';
+import { getCurrentUser } from '../../../types/User';
 import RideItem from './RideItem';
 
 export default function RideList({navigation}: any) {

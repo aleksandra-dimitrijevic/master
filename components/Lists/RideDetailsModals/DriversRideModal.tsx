@@ -1,18 +1,18 @@
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { request } from '../../services/request';
-import { Stop } from '../../types/Rides';
-import { User } from '../../types/User';
-import RideDate from '../Lists/commonInfo/RideDate';
-import RideSeats from '../Lists/commonInfo/RideSeats';
-import StopComponent from '../Lists/commonInfo/StopComponent';
-import RideTime from '../Lists/commonInfo/RideTime';
-import Passenger from '../RidesList/Passenger';
+import { request } from '../../../services/request';
+import { Stop } from '../../../types/Rides';
+import { User } from '../../../types/User';
+import RideDate from '../commonInfo/RideDate';
+import RideSeats from '../commonInfo/RideSeats';
+import StopComponent from '../commonInfo/StopComponent';
+import RideTime from '../commonInfo/RideTime';
+import Passenger from '../commonInfo/Passenger';
 import MapStops from './MapStops';
 
-type RideInfoDriverProps = {
+type DriversRideModalProps = {
 
 }
-export default function RideInfoDriver({ route, navigation }: any) {
+export default function DriversRideModalDriver({ route, navigation }: any) {
     const { ride } = route.params;
     const driver = route.params.ride.driver;
 

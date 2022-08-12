@@ -1,10 +1,10 @@
 import { FontAwesome } from '@expo/vector-icons';
 import { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { request } from '../../services/request';
-import { Stop } from '../../types/Rides';
-import { User } from '../../types/User';
-import StopComponent from '../Lists/commonInfo/StopComponent';
+import { request } from '../../../services/request';
+import { Stop } from '../../../types/Rides';
+import { User } from '../../../types/User';
+import StopComponent from './StopComponent';
 
 type PassengerProps = {
     user: User,

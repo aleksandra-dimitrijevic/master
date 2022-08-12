@@ -1,20 +1,20 @@
 import { FontAwesome } from '@expo/vector-icons';
 import { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { request } from '../../services/request';
-import { Stop } from '../../types/Rides';
-import { getCurrentUser } from '../../types/User';
-import RideDate from '../Lists/commonInfo/RideDate';
-import RideDriver from '../Lists/commonInfo/RideDriver';
-import RideSeats from '../Lists/commonInfo/RideSeats';
-import StopComponent from '../Lists/commonInfo/StopComponent';
-import RideTime from '../Lists/commonInfo/RideTime';
+import { request } from '../../../services/request';
+import { Stop } from '../../../types/Rides';
+import { getCurrentUser } from '../../../types/User';
+import RideDate from '../commonInfo/RideDate';
+import RideDriver from '../commonInfo/RideDriver';
+import RideSeats from '../commonInfo/RideSeats';
+import StopComponent from '../commonInfo/StopComponent';
+import RideTime from '../commonInfo/RideTime';
 import MapStops from './MapStops';
 
-type RideInfoProps = {
+type PassengersRideModalProps = {
 
 }
-export default function RideInfo({ route, navigation }: any) {
+export default function PassengersRideModal({ route, navigation }: any) {
     const { ride, start, finish } = route.params;
     const driver = route.params.ride.driver;
     const [applied, setApplied] = useState(false)

@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { request } from '../../services/request';
-import { Ride } from '../../types/Rides';
-import { getCurrentUser, User } from '../../types/User';
-import RideItemSearch from '../RideListSearch/RideItemSearch';
+import { request } from '../../../services/request';
+import { Ride } from '../../../types/Rides';
+import { getCurrentUser, User } from '../../../types/User';
+import RideItem from './RideItem';
 
 
 type RidePassengerListSearch = {
@@ -45,7 +45,7 @@ export default function RidePassengerListSearch(props: RidePassengerListSearch) 
         <View style={styles.container}>
             {user && <ScrollView style={{flex:1, width: '100%'}} contentContainerStyle={{ padding: 16 }}>
                 { rides.map( ride => 
-                    <RideItemSearch  
+                    <RideItem  
                         ride={ride} 
                         start={ride.passengers.find( (p: any) => p.user._id === user._id)?.start || 0} 
                         finish={ride.passengers.find( (p: any) => p.user._id === user._id)?.finish || 0} 

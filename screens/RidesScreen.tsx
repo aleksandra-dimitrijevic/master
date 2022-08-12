@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import RidePassengerListSearch from '../components/RidePassengerList/RidePassengerList';
-import RideList from '../components/RidesList/RideList';
+import RidePassengerListSearch from '../components/Lists/PassengersRideList/RideListPassenger';
+import RideList from '../components/Lists/DriversRideList/RideList';
 
 
 export default function RidesScreen({ navigation, route }: any) {

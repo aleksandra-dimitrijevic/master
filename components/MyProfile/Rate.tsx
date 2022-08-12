@@ -1,10 +1,9 @@
-import { FontAwesome } from '@expo/vector-icons';
 import { useEffect, useState } from 'react';
 import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Rating } from 'react-native-ratings';
-import { request } from '../services/request';
-import { getCurrentUser, User } from '../types/User';
-import ProfileMenuItem from './MyProfile/ProfileMenuItem';
+import { request } from '../../services/request';
+import { getCurrentUser, User } from '../../types/User';
+import ProfileMenuItem from './ProfileMenuItem';
 
 type RateComponentProps = {
     user: User

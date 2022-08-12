@@ -1,8 +1,8 @@
 import { FontAwesome } from '@expo/vector-icons';
 import React from 'react'
 import { View, StyleSheet, Image } from 'react-native';
-import UserInfo from './MyProfile/UserInfo';
-import { SERVER_URL } from '../constants/Api';
+import UserInfo from './UserInfo';
+import { SERVER_URL } from '../../constants/Api';
 import RateComponent from './Rate';
 
 type PublicProfileProps = {

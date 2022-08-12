@@ -1,7 +1,7 @@
 import { Button, StyleSheet } from "react-native";
 import { View } from "../components/Themed";
-import AddRideInfo from "../components/AddRideInfo";
-import Map from "../components/Map";
+import AddRideInfo from "../components/AddRide/AddRideInfo";
+import AddStops from "../components/AddRide/AddStops";
 import { useState } from "react";
 import { Location } from "../types";
 import { getCurrentUser } from "../types/User";
@@ -43,11 +43,11 @@ export default function TabAddRideScreen( {navigation}:any) {
   return (
     <View style={styles.container}>
       {showMap && (
-        <Map
+        <AddStops
           showMap={() => setShowMap(false)}
           setCoordinates={(coordinates: Location[]) => setCoordinates(coordinates)}
           coordinates={coordinates}
-        ></Map>
+        />
       )}
       {!showMap && (
         <AddRideInfo

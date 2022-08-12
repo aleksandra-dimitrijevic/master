@@ -1,8 +1,7 @@
 import React from "react";
 import { Button, StyleSheet, TouchableOpacity,View } from "react-native";
-import { Text,} from "../components/Themed";
-import { useState } from "react";
-import DateTimePickerComponent from "./DateTimePickerComponent";
+import { Text,} from "../Themed";
+import DateTimePickerComponent from "../DateTimePickerComponent";
 
 type AddRideInfoProps = {
   showMap: () => void;

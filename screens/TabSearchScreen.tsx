@@ -6,7 +6,7 @@ import { View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 import { RideSearch } from '../types/Rides';
 
-export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
+export default function TabSearchScreen({ navigation }: RootTabScreenProps<'TabSearch'>) {
   const [showMap, setShowMap] = useState(true);
   const [ rides, setRides] = useState<RideSearch[]>([]);
   return (

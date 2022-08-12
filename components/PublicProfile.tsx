@@ -1,10 +1,8 @@
 import { FontAwesome } from '@expo/vector-icons';
-import React, { useEffect, useState } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import UserInfo from '../components/UserInfo';
+import React from 'react'
+import { View, StyleSheet, Image } from 'react-native';
+import UserInfo from './MyProfile/UserInfo';
 import { SERVER_URL } from '../constants/Api';
-import { User } from '../types/User';
-import { Rating, AirbnbRating } from 'react-native-ratings';
 import RateComponent from './Rate';
 
 type PublicProfileProps = {

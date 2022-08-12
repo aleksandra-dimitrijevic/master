@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { User } from '../types/User';
+import { User } from '../../types/User';
 import { Rating } from 'react-native-ratings';
 import { useEffect, useState } from 'react';
-import ProfileMenuItem from './MyProfile/ProfileMenuItem';
+import ProfileMenuItem from './ProfileMenuItem';
 
 type UserInfoProps = {
     user: User

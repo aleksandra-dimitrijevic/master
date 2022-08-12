@@ -23,7 +23,7 @@ import NotFoundScreen from '../screens/NotFoundScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import RidesScreen from '../screens/RidesScreen';
 import TabSearchScreen from '../screens/TabSearchScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
+import TabAddRideScreen from '../screens/TabAddRideScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 
@@ -110,8 +110,8 @@ function BottomTabNavigator() {
         })}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoScreen}
+        name="TabAddRide"
+        component={TabAddRideScreen}
         options={{
           title: 'Add Ride',
           tabBarIcon: ({ color }) => <TabBarIcon name="plus-square-o" color={color} />,

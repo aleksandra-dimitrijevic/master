@@ -7,7 +7,7 @@ import { Location } from "../types";
 import { getCurrentUser } from "../types/User";
 import { request } from "../services/request";
 
-export default function TabTwoScreen( {navigation}:any) {
+export default function TabAddRideScreen( {navigation}:any) {
   const [showMap, setShowMap] = useState(true);
   const [coordinates, setCoordinates] = useState<Location[]>([]);
   const [date, setDate] = useState<Date>(new Date());

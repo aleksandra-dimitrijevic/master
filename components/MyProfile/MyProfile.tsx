@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { getCurrentUser, removeCurrentUser, User } from '../../types/User';
-import ImagePickerExample from '../ImagePickerExample';
+import ImagePickerComponent from './ImagePickerComponent';
 import UserInfo from '../UserInfo';
 import ProfileMenuItem from './ProfileMenuItem';
 
@@ -34,7 +34,7 @@ function MyProfile({ navigation, setUser }: any) {
 
     return (
         <View style={styles.container}>
-            <ImagePickerExample />
+            <ImagePickerComponent />
             {currentUser && <>
                 <UserInfo user={currentUser} />
                 <View style={styles.menu}>

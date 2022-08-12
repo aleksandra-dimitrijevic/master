@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import ImagePickerExample from '../components/ImagePickerExample';
 import LogIn from '../components/LogIn';
 import MyProfile from '../components/MyProfile/MyProfile';
-import UserInfo from '../components/UserInfo';
 import { getCurrentUser, removeCurrentUser, User } from '../types/User';
 
 function ProfileScreen({ navigation }: any) {

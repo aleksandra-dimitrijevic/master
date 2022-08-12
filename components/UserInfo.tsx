@@ -1,27 +1,53 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { User } from '../types/User';
+import { Rating } from 'react-native-ratings';
+import { useEffect, useState } from 'react';
+import ProfileMenuItem from './MyProfile/ProfileMenuItem';
 
 type UserInfoProps = {
     user: User
 }
 export default function UserInfo(props: UserInfoProps) {
     const { user } = props;
+    const [rating, setRating] = useState(0)
+
+    useEffect(() => {
+        const r = user.score / user.ratesNumber;
+        setRating(r)
+    }, []);
+
 
     return (
-        <View style={{alignItems:'center'}}>
-            <Text style={styles.name}>
-                {user.firstName + ' ' + user.lastName}
-            </Text>
-            <View style={styles.container}>
-                <Text>
-                    <Text style={{fontWeight:'bold'}}>Phone: </Text>
-                     {user.phone}
+        <View style={{ width:'100%' }}>
+            <View style={{ alignItems: 'center' }}>
+                <Text style={styles.name}>
+                    {user.firstName + ' ' + user.lastName}
                 </Text>
-                <Text>
-                    <Text style={{fontWeight:'bold'}}>Email: </Text>
-                    {user.email}
-                </Text>
-            </View> 
+                <Rating
+                    imageSize={16}
+                    fractions={1}
+                    startingValue={rating || 0}
+                    readonly={true}
+                    ratingColor='#00C897'
+                />
+                <Text style={styles.votes}>{user.ratesNumber || 0} votes</Text>
+            </View>
+
+            <View style={styles.menu}>
+                    <View style={styles.title}>
+                        <Text style={{color:'darkgray'}}>CONTACT</Text>
+                    </View>
+                    <ProfileMenuItem
+                        user={user}
+                        icon='phone'
+                        title={user.phone}
+                    />
+                    <ProfileMenuItem
+                        user={user}
+                        icon='envelope-o'
+                        title={user.email}
+                    />
+            </View>
         </View>
     );
 }
@@ -29,16 +55,20 @@ export default function UserInfo(props: UserInfoProps) {
 const styles = StyleSheet.create({
     name: {
         fontWeight: 'bold',
-        color:'#00C897',
+        color: '#00C897',
         fontSize: 20,
-        paddingBottom: 16
     },
-    container: {
-        borderWidth: 1,
-        borderColor: 'lightgrey',
-        borderRadius: 10,
-        padding: 16,
-        width: 300,
-        marginBottom:16
+    votes: {
+        color: 'darkgray',
+        fontSize: 12
+    },
+    menu:{
+        width:'100%',
+        padding:32,
+        paddingBottom:0
+    },
+    title:{
+        backgroundColor:'#ececec',
+        padding:8
     }
 });

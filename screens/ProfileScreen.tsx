@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import ImagePickerExample from '../components/ImagePickerExample';
 import LogIn from '../components/LogIn';
+import MyProfile from '../components/MyProfile/MyProfile';
 import UserInfo from '../components/UserInfo';
 import { getCurrentUser, removeCurrentUser, User } from '../types/User';
 
@@ -20,12 +21,10 @@ function ProfileScreen({ navigation }: any) {
 
   useEffect(() => {
     init();
-    const willFocusSubscription = navigation.addListener('focus', () => {
-      init()
-   });
-
-   return willFocusSubscription;
-   
+  //   const willFocusSubscription = navigation.addListener('focus', () => {
+  //     init()
+  //  });
+  //  return willFocusSubscription;
   }, []);
 
 
@@ -40,34 +39,7 @@ function ProfileScreen({ navigation }: any) {
           <Text style={{ color: "#00C897" }}> Register?</Text>
         </TouchableOpacity>
       </>}
-      {currentUser && <>
-        <ImagePickerExample />
-        <UserInfo user={currentUser} />
-
-        <TouchableOpacity
-          style={{ marginTop: 32 }}
-          onPress={() => navigation.navigate('EditUserInfo', {user: currentUser})}
-        >
-          <Text style={{ color: "#00C897" }}> Change Personal Information</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={{ marginTop: 32 }}
-          onPress={() => navigation.navigate('ChangePassword')}
-        >
-          <Text style={{ color: "#00C897" }}> Change Password</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={{ marginTop: 32 }}
-          onPress={() => {
-            setCurrentUser(undefined);
-            removeCurrentUser();
-          }}
-        >
-          <Text style={{ color: "#00C897" }}> Log out</Text>
-        </TouchableOpacity>
-      </>}
+      {currentUser && <MyProfile navigation={navigation} setUser={setCurrentUser}/>}
     </View>
 
   )

@@ -49,8 +49,7 @@ const styles = StyleSheet.create({
     container: {
       alignItems: "center",
       paddingTop: 32,
-      backgroundColor: 'rgb(232,232,232)',
-      //justifyContent: "center",
+      backgroundColor: 'white',
       width:'100%'
     }
   });

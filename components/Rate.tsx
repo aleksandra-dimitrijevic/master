@@ -4,6 +4,7 @@ import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Rating } from 'react-native-ratings';
 import { request } from '../services/request';
 import { getCurrentUser, User } from '../types/User';
+import ProfileMenuItem from './MyProfile/ProfileMenuItem';
 
 type RateComponentProps = {
     user: User
@@ -51,10 +52,15 @@ export default function RateComponent(props: RateComponentProps) {
     }
 
     return (
-        <View style={styles.container}>
-            <Text>
-                Score: {score} /5 - {numberVotes} votes
-            </Text>
+        <View style={styles.menu}>
+            <View style={styles.title}>
+                <Text style={{color:'darkgray'}}>RATING</Text>
+            </View>
+            { currentUser && <ProfileMenuItem
+                icon='star'
+                title= {Math.round(score * 100) / 100+' / 5 - '+numberVotes+' votes'}
+                user={currentUser}
+            />}
             <Rating
                 onFinishRating={ratingCompleted}
                 style={{ paddingVertical: 10, paddingBottom: 32 }}
@@ -68,13 +74,13 @@ export default function RateComponent(props: RateComponentProps) {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        borderWidth: 1,
-        borderColor: 'lightgrey',
-        borderRadius: 10,
-        padding: 16,
-        width: 300,
-        marginBottom: 16,
-        alignItems: 'center'
+    menu:{
+        width:'100%',
+        padding:32,
+        paddingTop:0,
+    },
+    title:{
+        backgroundColor:'#ececec',
+        padding:8
     }
 });

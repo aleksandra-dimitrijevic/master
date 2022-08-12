@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Image, View, Platform, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { SERVER_URL } from '../constants/Api';
-import { getCurrentUser, storeCurrentUser } from '../types/User';
+import { getCurrentUser, storeCurrentUser, User } from '../types/User';
 import { FontAwesome } from '@expo/vector-icons';
 
 export default function ImagePickerExample() {
@@ -13,6 +13,7 @@ export default function ImagePickerExample() {
     try {
       const user = await getCurrentUser();
       setUser(user)
+      console.log(user.image)
       if(user.image) setImage(user.image)
 
     } catch (error) {
@@ -66,15 +67,15 @@ export default function ImagePickerExample() {
   };
 
   return (
-    <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+    <View style={{ alignItems: 'center' }}>
       <TouchableOpacity onPress={pickImage}>
         <Text style={{ color: '#00C897' }}>Change Profile Picture</Text>
       </TouchableOpacity>
-      <Image 
+      {image!='' && <Image 
         source={{ uri: `${SERVER_URL}/users/picture/${image}`}} 
         style={image? styles.image : styles.hide}
 
-      />
+      />}
       <FontAwesome size={100} name='camera' color='black' onPress={pickImage} style={!image? styles.cameraIcon : styles.hide}/>
 
     </View>

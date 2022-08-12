@@ -1,10 +1,11 @@
 import { SetStateAction, useState } from 'react';
 import { StyleSheet } from 'react-native';
-import MapSearch from '../components/MapSearch';
+import MapSearch from '../components/SearchRides/MapSearch';
 import RideListSearch from '../components/Lists/PassengersRideList/RideListSearch';
 import { View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 import { RideSearch } from '../types/Rides';
+import SearchRides from '../components/SearchRides/SearchRides';
 
 export default function TabSearchScreen({ navigation }: RootTabScreenProps<'TabSearch'>) {
   const [showMap, setShowMap] = useState(true);
@@ -12,10 +13,10 @@ export default function TabSearchScreen({ navigation }: RootTabScreenProps<'TabS
   return (
     <View style={styles.container}>
       {showMap && (
-        <MapSearch
+        <SearchRides
           showMap={() => setShowMap(false)}
           setRides={(rides: RideSearch[]) => setRides(rides || [])}
-        ></MapSearch>
+        />
       )}
       {!showMap && (
         <RideListSearch

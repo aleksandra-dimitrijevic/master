@@ -9,8 +9,8 @@ import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { ColorSchemeName, Pressable } from 'react-native';
-import ChangePassword from '../components/ChangePassword';
-import EditUserInfo from '../components/EditUserInfo';
+import ChangePassword from '../components/Profile/ChangePassword';
+import EditUserInfo from '../components/Profile/EditUserInfo';
 import PublicProfile from '../components/Profile/PublicProfile';
 import Register from '../components/Register';
 import RideInfo from '../components/RideInfo/RideInfo';

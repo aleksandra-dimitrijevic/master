@@ -1,7 +1,7 @@
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import { useForm } from 'react-hook-form'
-import Input from "./Input";
-import { request } from "../services/request";
+import Input from "../Input";
+import { request } from "../../services/request";
 import { useState } from "react";
 
 type ChangePasswordProps = {

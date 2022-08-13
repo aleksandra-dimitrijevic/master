@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import RideListSearch from '../components/Lists/PassengersRideList/RideListSearch';
 import { View } from '../components/Themed';
-import { RootTabScreenProps } from '../types';
+import { RootTabScreenProps } from '../types/Navigation';
 import { RideSearch } from '../types/Rides';
 import SearchRides from '../components/SearchRides/SearchRides';
 

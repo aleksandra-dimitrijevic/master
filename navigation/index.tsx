@@ -19,7 +19,7 @@ import ProfileScreen from '../screens/ProfileScreen';
 import RidesScreen from '../screens/RidesScreen';
 import TabSearchScreen from '../screens/TabSearchScreen';
 import TabAddRideScreen from '../screens/TabAddRideScreen';
-import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
+import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types/Navigation';
 import LinkingConfiguration from './LinkingConfiguration';
 
 const MyTheme = {

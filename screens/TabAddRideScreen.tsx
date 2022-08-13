@@ -3,7 +3,7 @@ import { View } from "../components/Themed";
 import AddRideInfo from "../components/AddRide/AddRideInfo";
 import AddStops from "../components/AddRide/AddStops";
 import { useState } from "react";
-import { Location } from "../types";
+import { Location } from "../types/Navigation";
 import { getCurrentUser } from "../types/User";
 import { request } from "../services/request";
 

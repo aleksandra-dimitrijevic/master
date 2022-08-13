@@ -1,5 +1,4 @@
-import { StyleSheet } from "react-native";
-import { View } from "../components/Themed";
+import { StyleSheet, View } from "react-native";
 import AddRideInfo from "../components/AddRide/AddRideInfo";
 import AddStops from "../components/AddRide/AddStops";
 import { useState } from "react";

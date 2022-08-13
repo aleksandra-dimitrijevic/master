@@ -50,7 +50,7 @@ export default function UserInfo(props: UserInfoProps) {
                     <ProfileMenuItem
                         user={user}
                         icon='car'
-                        title={user.car.model+', '+user.car.color}
+                        title={(user?.car?.model || ' Please enter this info')+', '+(user?.car?.color || '')}
                     />
             </View>
         </View>

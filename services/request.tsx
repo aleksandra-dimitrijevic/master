@@ -44,6 +44,9 @@ export const request = async (options: RequestOptions) => {
         headers: await getHeaders(),
         body: options.body && JSON.stringify(options.body),
     });
-    //alert(JSON.stringify(response.json()))
-    return await response.json();
+    const json = await response.json();
+    // if(response.status >= 400){
+    //     throw new Error(json.msg)
+    // }
+    return json;
 };

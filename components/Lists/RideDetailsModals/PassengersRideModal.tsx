@@ -50,6 +50,7 @@ export default function PassengersRideModal({ route, navigation }: any) {
             setApplied(false)
             
         } catch(error){
+            console.log(error)
             alert("Error, please try again");
         }
     }

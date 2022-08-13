@@ -8,9 +8,7 @@ export default function StopInput({title, address}: StopInputProps) {
 
     return (
         <View style={styles.stop}>
-            <View
-                style={styles.inputLabel}
-            >
+            <View style={styles.inputLabel}>
                 <Text style={{ color: 'white' }}>{title}</Text>
             </View>
             <Text numberOfLines={1} style={{ maxWidth: '85%' }}>{address}</Text>

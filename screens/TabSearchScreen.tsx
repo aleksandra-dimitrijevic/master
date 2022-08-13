@@ -1,20 +1,22 @@
-import { useState } from 'react';
-import { StyleSheet } from 'react-native';
+import React, { useCallback, useState } from 'react';
+import { StyleSheet, View } from 'react-native';
 import RideListSearch from '../components/Lists/PassengersRideList/RideListSearch';
-import { View } from '../components/Themed';
 import { RootTabScreenProps } from '../types/Navigation';
 import { RideSearch } from '../types/Rides';
 import SearchRides from '../components/SearchRides/SearchRides';
 
-export default function TabSearchScreen({ navigation }: RootTabScreenProps<'TabSearch'>) {
+function TabSearchScreen({ navigation }: RootTabScreenProps<'TabSearch'>) {
   const [showMap, setShowMap] = useState(true);
   const [ rides, setRides] = useState<RideSearch[]>([]);
+
+  const handleSetRides = useCallback((rides: RideSearch[]) => setRides(rides || []), [setRides])
+
   return (
     <View style={styles.container}>
       {showMap && (
         <SearchRides
           showMap={() => setShowMap(false)}
-          setRides={(rides: RideSearch[]) => setRides(rides || [])}
+          setRides={handleSetRides}
         />
       )}
       {!showMap && (
@@ -22,12 +24,14 @@ export default function TabSearchScreen({ navigation }: RootTabScreenProps<'TabS
           showMap={() => setShowMap(true)}
           rides = {rides}
           navigation = {navigation}
-        ></RideListSearch>
+        />
       )}
 
     </View>
   );
 }
+
+export default React.memo(TabSearchScreen)
 
 const styles = StyleSheet.create({
   container: {

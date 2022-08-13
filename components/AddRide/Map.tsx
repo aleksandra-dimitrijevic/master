@@ -1,7 +1,7 @@
 import { Text, StyleSheet } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import React from "react";
-import pinIcon from "../../assets/images/pin2.png";
+import pinIcon from "../../components/pin2.png";
 import { Location } from "../../types/Rides";
 import { fetchAddress } from "../../types/Rides";
 

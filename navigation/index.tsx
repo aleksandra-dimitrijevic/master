@@ -33,11 +33,11 @@ const MyTheme = {
     notification: 'rgb(255, 69, 58)',
   },
 };
-export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
+export default function Navigation() {
   return (
     <NavigationContainer
       linking={LinkingConfiguration}
-      theme={ colorScheme === 'dark' ? MyTheme :DefaultTheme}>
+      theme={ MyTheme } >
       <RootNavigator />
     </NavigationContainer>
   );

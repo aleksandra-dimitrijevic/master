@@ -13,7 +13,6 @@ export default function ImagePickerComponent() {
     try {
       const user = await getCurrentUser();
       setUser(user)
-      console.log(user.image)
       if(user.image) setImage(user.image)
 
     } catch (error) {

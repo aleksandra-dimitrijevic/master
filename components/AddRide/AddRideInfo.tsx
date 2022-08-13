@@ -1,6 +1,5 @@
 import React from "react";
-import { Button, StyleSheet, TouchableOpacity, View } from "react-native";
-import { Text, } from "../Themed";
+import { Button, StyleSheet, TouchableOpacity, View, Text } from "react-native";
 import DateTimePickerComponent from "./DateTimePickerComponent";
 import NumberPeopleInput from "./NumberPeopleInput";
 

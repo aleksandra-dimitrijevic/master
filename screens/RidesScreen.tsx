@@ -11,15 +11,22 @@ export default function RidesScreen({ navigation, route }: any) {
   return (
     <View style={styles.container}>
       <View style={styles.tabs}>
-        <TouchableOpacity onPress={() => setIsDriver(true)} style={ isDriver ? styles.selectedTab : styles.tab}>
-          <Text style={ styles.text}>Driver</Text>
+        <TouchableOpacity
+          onPress={() => setIsDriver(true)}
+          style={isDriver ? styles.selectedTab : styles.tab}
+        >
+          <Text style={styles.text}>Driver</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => setIsDriver(false)} style={ !isDriver ? styles.selectedTab : styles.tab}>
-          <Text style={ styles.text}>Passenger</Text>
+        <TouchableOpacity
+          onPress={() => setIsDriver(false)}
+          style={!isDriver ? styles.selectedTab : styles.tab}
+        >
+          <Text style={styles.text}>Passenger</Text>
         </TouchableOpacity>
       </View>
-      {isDriver && <RideList navigation={navigation}/>}
-      {!isDriver && <RidePassengerListSearch navigation={navigation}/>}
+
+      {isDriver && <RideList navigation={navigation} />}
+      {!isDriver && <RidePassengerListSearch navigation={navigation} />}
     </View>
   );
 }
@@ -29,27 +36,27 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    width:'100%'
+    width: '100%'
   },
   tabs: {
     flexDirection: 'row',
-    width:'100%',
-    marginBottom:16
+    width: '100%',
+    marginBottom: 16
   },
-  selectedTab:{
-    backgroundColor:'white',
+  selectedTab: {
+    backgroundColor: 'white',
     width: '50%',
-    padding:8,
+    padding: 8,
     borderBottomWidth: 3,
     borderColor: '#00C897',
   },
-  tab:{
-    backgroundColor:'white',
+  tab: {
+    backgroundColor: 'white',
     width: '50%',
-    padding:8
+    padding: 8
   },
   text: {
     color: '#00C897',
-    textAlign:'center'
+    textAlign: 'center'
   }
 });

@@ -1,6 +1,5 @@
-import { SetStateAction, useState } from 'react';
+import { useState } from 'react';
 import { StyleSheet } from 'react-native';
-import MapSearch from '../components/SearchRides/MapSearch';
 import RideListSearch from '../components/Lists/PassengersRideList/RideListSearch';
 import { View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';

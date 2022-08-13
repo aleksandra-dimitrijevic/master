@@ -1,4 +1,4 @@
-import { Button, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { View } from "../components/Themed";
 import AddRideInfo from "../components/AddRide/AddRideInfo";
 import AddStops from "../components/AddRide/AddStops";

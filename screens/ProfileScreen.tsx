@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import LogIn from '../components/LogIn';
 import MyProfile from '../components/Profile/MyProfile';
-
-import { getCurrentUser, removeCurrentUser, User } from '../types/User';
+import { getCurrentUser, User } from '../types/User';
 
 function ProfileScreen({ navigation }: any) {
 

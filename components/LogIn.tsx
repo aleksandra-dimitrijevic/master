@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
-import { TextInput, Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import { SERVER_URL } from "../constants/Api";
 import { storeCurrentUser, User } from "../types/User";
 import Input from "./Input";
-//import {  Text, View} from "./Themed";
+
 type LogInProps = {
     setUser : ( user: User) => void;
 }

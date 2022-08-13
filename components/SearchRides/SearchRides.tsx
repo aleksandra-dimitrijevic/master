@@ -1,4 +1,4 @@
-import { View, Button, StyleSheet } from "react-native";
+import { View, Button, StyleSheet, Image } from "react-native";
 import React, { useState } from "react";
 import { Location } from "../../types";
 import { RideSearch } from "../../types/Rides";

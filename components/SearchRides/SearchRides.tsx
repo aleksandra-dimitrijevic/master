@@ -1,6 +1,6 @@
 import { View, Button, StyleSheet, Image } from "react-native";
 import React, { useState } from "react";
-import { Location } from "../../types/Navigation";
+import { Location } from "../../types/Rides";
 import { RideSearch } from "../../types/Rides";
 import { request } from "../../services/request";
 import StopInput from "./StopInput";

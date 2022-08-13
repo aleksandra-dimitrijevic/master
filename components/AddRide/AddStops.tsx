@@ -1,6 +1,6 @@
 import { View, Text, Button, StyleSheet, ScrollView, TouchableOpacity } from "react-native";
 import React from "react";
-import { Location } from "../../types/Navigation";
+import { Location } from "../../types/Rides";
 import { fetchAddress } from "../../types/Rides";
 import NewStop from "./NewStop";
 import Map from "./Map";

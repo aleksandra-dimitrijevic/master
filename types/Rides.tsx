@@ -1,5 +1,12 @@
 import { User } from "./User";
 
+export type Location = {
+  latitude: number;
+  longitude: number;
+  label: string;
+};
+
+
 export type Stop = {
   _id?:any
   number: number,

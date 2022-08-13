@@ -2,12 +2,18 @@ import { Text, StyleSheet, View } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import React from "react";
 import { Stop } from "../../../types/Rides";
-import pinIcon from "../../green-pin.png";
+import pinIcon from "../../../assets/images/pin2.png";
 
 type MapStopsProps = {
   stops: Stop[];
 }
 
+const initRegion = {
+  latitude: 44.811879,
+  longitude: 20.464239,
+  latitudeDelta: 0.0922,
+  longitudeDelta: 0.0421,
+}
 export default function MapStops(props: MapStopsProps) {
 
   return (
@@ -17,12 +23,7 @@ export default function MapStops(props: MapStopsProps) {
           height: 300,
           marginTop: 32,
         }}
-        initialRegion={{
-          latitude: 44.811879,
-          longitude: 20.464239,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}
+        initialRegion={ initRegion}
       >
         {props.stops.map((stop, index) => (
           <Marker
@@ -33,7 +34,7 @@ export default function MapStops(props: MapStopsProps) {
             {/* <View style={{backgroundColor: 'white', width:20,height:20, borderRadius:50}}>
                 <Text style={{fontWeight:"bold", color:'green', textAlign:'center'}}>{index + 1}</Text>
             </View> */}
-            <Text style={{fontWeight:"bold"}}>{index + 1}</Text>
+            <Text style={{fontWeight:"bold", color:'black'}}>{index + 1}</Text>
           </Marker>
         ))}
       </MapView>

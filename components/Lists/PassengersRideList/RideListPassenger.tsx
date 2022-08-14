@@ -30,7 +30,6 @@ export default function RidePassengerListSearch(props: RidePassengerListSearch) 
             }
             
         } catch(error){
-            //alert(error);
             setRides([])
             props.navigation.navigate('TabThree')
         }
@@ -52,7 +51,9 @@ export default function RidePassengerListSearch(props: RidePassengerListSearch) 
                         start={ride.passengers.find( (p: any) => p.user._id === user._id)?.start || 0} 
                         finish={ride.passengers.find( (p: any) => p.user._id === user._id)?.finish || 0} 
                         key={ride._id} 
-                        navigation={props.navigation}/>
+                        navigation={props.navigation}
+                        search={false}
+                        />
                 )}
             </ScrollView>}
             

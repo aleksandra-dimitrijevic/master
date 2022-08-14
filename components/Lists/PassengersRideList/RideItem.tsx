@@ -12,14 +12,19 @@ type RideItemProps = {
     ride: Ride,
     navigation: any,
     start: number,
-    finish: number
+    finish: number,
+    search: boolean
 }
 export default function RideItem(props: RideItemProps) {
     const driver = props.ride.driver;
     const ride = props.ride;
-    
+    const disabled = props.search && ride.availableSeats===0
+
+    const handleOnPress = () => {
+        props.navigation.navigate('RideInfo', { ride, start: props.start, finish: props.finish })
+    }
     return (
-        <TouchableOpacity style={styles.item} onPress={() => props.navigation.navigate('RideInfo', { ride, start: props.start, finish: props.finish })}>
+        <TouchableOpacity style={[styles.item, disabled ? styles.disabled : {} ]} onPress={handleOnPress} disabled={disabled}>
             <View style={{flexDirection:'row', justifyContent:'space-between'}}>
                 <View>
                     <RideDriver driver={driver} navigation={props.navigation}/>
@@ -50,5 +55,8 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         padding: 16,
         width: '100%',
+    },
+    disabled: {
+        opacity: 0.4
     }
 });

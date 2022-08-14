@@ -24,7 +24,6 @@ export default function RideList({navigation}: any) {
             }
             
         } catch(error: any){
-            //alert(error);
             setRides([])
             navigation.navigate('TabThree')
         }

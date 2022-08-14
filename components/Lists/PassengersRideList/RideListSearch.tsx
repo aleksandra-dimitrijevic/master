@@ -28,7 +28,9 @@ export default function RideListSearch(props: RideListSearch) {
                         start={ride.start} 
                         finish={ride.finish} 
                         key={ride.ride._id} 
-                        navigation={props.navigation}/>
+                        navigation={props.navigation}
+                        search={true}
+                        />
                 )}
             </ScrollView>
 

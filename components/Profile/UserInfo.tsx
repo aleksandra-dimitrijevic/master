@@ -47,11 +47,11 @@ export default function UserInfo(props: UserInfoProps) {
                         icon='envelope-o'
                         title={user.email}
                     />
-                    <ProfileMenuItem
+                    { user?.car && <ProfileMenuItem
                         user={user}
                         icon='car'
-                        title={(user?.car?.model || ' Please enter this info')+', '+(user?.car?.color || '')}
-                    />
+                        title={ user?.car?.model +', '+ user?.car?.color }
+                    />}
             </View>
         </View>
     );

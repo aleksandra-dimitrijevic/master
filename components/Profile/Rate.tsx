@@ -31,6 +31,7 @@ export default function RateComponent(props: RateComponentProps) {
     
     const onRate = async () => {
         try {
+            console.log(rating)
             const currentUser = await getCurrentUser()
             const json = await request({
                 method: 'PATCH',
@@ -46,7 +47,7 @@ export default function RateComponent(props: RateComponentProps) {
             alert('Thanks for rating!')
 
         } catch (error) {
-            //alert("Error, please try again");
+            alert("Error, please try again");
         }
     }
 
@@ -57,7 +58,7 @@ export default function RateComponent(props: RateComponentProps) {
             </View>
             { currentUser && <ProfileMenuItem
                 icon='star'
-                title= {Math.round(score * 100) / 100+' / 5 - '+numberVotes+' votes'}
+                title= {numberVotes ? Math.round(score * 100) / 100+' / 5 - '+numberVotes+' votes' : 'No votes, be the first to vote!'}
                 user={currentUser}
             />}
             <Rating

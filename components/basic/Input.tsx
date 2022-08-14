@@ -1,5 +1,5 @@
 import { useController } from 'react-hook-form'
-import { TextInput,StyleSheet} from "react-native";
+import { TextInput,StyleSheet, View, Text} from "react-native";
 
 function Input({ name, control, rules, ...rest }: any) {
     const { field, fieldState } = useController({
@@ -7,25 +7,41 @@ function Input({ name, control, rules, ...rest }: any) {
       name,
       rules
     })
-  
+   
     return (
-      <TextInput
-              {...rest}
-        style={[styles.input, fieldState.error && { borderColor: 'red' }]}
-        value={field.value}
-        onChangeText={field.onChange}
-      />
+      <View style={styles.inputWrapper}>
+        <TextInput
+                {...rest}
+          style={[styles.input, fieldState.error && { borderColor: 'red' }]}
+          value={field.value}
+          onChangeText={field.onChange}
+        />
+        {fieldState.error && <View>
+          <Text style={styles.errorMessage}>{fieldState.error.message || 'This field is required!'}</Text>
+        </View>
+        }
+       
+      </View>
     )
   }
 
   const styles = StyleSheet.create({
+    inputWrapper:{
+      marginBottom: 8,
+      width:'90%'
+    },
     input: {
         borderWidth: 1,
         borderColor: 'lightgrey',
-        marginBottom: 8,
         borderRadius: 10,
-        padding: 8,
-        width: '90%'
+        paddingVertical: 8,
+        paddingHorizontal:16,
+        width: '100%'
+    },
+    errorMessage:{
+      fontSize:12,
+      color:'red',
+      paddingHorizontal:8
     }
 });
 

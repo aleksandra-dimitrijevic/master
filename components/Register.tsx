@@ -28,11 +28,23 @@ export default function Register({ navigation }: any) {
 
     return (
         <View style={styles.container}>
-            <Input placeholder="First Name"  name="firstName" control={control} rules={{ required: true }}></Input>
-            <Input placeholder="Last Name" name="lastName" control={control} rules={{ required: true }}></Input>
-            <Input placeholder="E-mail" name="email" control={control} rules={{ required: true }}></Input>
-            <Input placeholder="Phone number" name="phone" control={control}></Input>
-            <Input placeholder="Password" name="password" secureTextEntry={true} control={control} rules={{ required: true }}></Input>
+            <Input placeholder="First Name"  name="firstName" control={control} rules={{ required: true }}/>
+            <Input placeholder="Last Name" name="lastName" control={control} rules={{ required: true }}/>
+            <Input placeholder="E-mail" name="email" control={control} 
+                rules={{ 
+                    required: true, 
+                    pattern: { value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ , message:'Please enter valid email!'}
+                }}
+            />
+            <Input placeholder="Phone number" name="phone" control={control}/>
+            <Input placeholder="Password" name="password" secureTextEntry={true} control={control} 
+                rules={{ 
+                    required: true,
+                    pattern: {
+                        value: /^(?=.*[A-Za-z])(?=.*\d).{8,}$/,
+                        message:'You need password with minimum eight caraters, at least one letter and one number!'
+                    }
+            }}/>
             <TouchableOpacity
                 style={{ padding: 8, backgroundColor: "#00C897", borderRadius: 5, width: '90%' }}
                 onPress={handleSubmit(onSubmit)}

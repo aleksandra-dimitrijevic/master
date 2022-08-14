@@ -19,10 +19,10 @@ function ProfileScreen({ navigation }: any) {
 
   useEffect(() => {
     init();
-  //   const willFocusSubscription = navigation.addListener('focus', () => {
-  //     init()
-  //  });
-  //  return willFocusSubscription;
+    const willFocusSubscription = navigation.addListener('focus', () => {
+      init()
+   });
+   return willFocusSubscription;
   }, []);
 
 
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    paddingTop: 32,
+    paddingTop: 16,
     backgroundColor: 'white',
   }
 });

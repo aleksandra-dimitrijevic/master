@@ -1,4 +1,4 @@
-import { View, Text, Button, StyleSheet, ScrollView, TouchableOpacity } from "react-native";
+import { View, Text, Button, StyleSheet, ScrollView, TouchableOpacity, Alert } from "react-native";
 import React from "react";
 import { Location } from "../../types/Rides";
 import { fetchAddress } from "../../types/Rides";
@@ -32,6 +32,12 @@ export default function AddStops({ showMap, setCoordinates, coordinates }: AddSt
     setCoordinates(arr);
   };
 
+  const handleToRideInfo = () => {
+    if(coordinates.length < 2){
+      Alert.alert('Add more than one station!','To enter more details about ride, you need at least two staions.')
+    } else showMap();
+  }
+
   return (
     <View style={styles.container}>
       <Map
@@ -51,7 +57,7 @@ export default function AddStops({ showMap, setCoordinates, coordinates }: AddSt
           ))}
         </ScrollView>
         <View style={{ alignItems: 'flex-end', marginTop: 16 }}>
-          <TouchableOpacity style={styles.backButton} onPress={showMap}>
+          <TouchableOpacity style={styles.backButton} onPress={handleToRideInfo}>
             <Text style={{ color: 'white' }}> RIDE INFO {' ->'}</Text>
           </TouchableOpacity>
         </View>

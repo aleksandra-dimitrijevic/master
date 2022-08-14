@@ -43,7 +43,7 @@ export default function EditUserInfo(props: EditInfoProps) {
             navigation.navigate('TabThree')
 
         } catch (error) {
-            alert("Error, please try again");
+            //alert("Error, please try again");
         }
     }
 

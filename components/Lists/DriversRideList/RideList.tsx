@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Alert, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { request } from '../../../services/request';
 import { Ride } from '../../../types/Rides';
-import { getCurrentUser } from '../../../types/User';
+import { getCurrentUser, removeCurrentUser } from '../../../types/User';
 import RideItem from './RideItem';
 
 export default function RideList({navigation}: any) {
@@ -11,7 +11,9 @@ export default function RideList({navigation}: any) {
     async function init() {
         try {
             const user = await getCurrentUser();
-            if(!user) alert('Please log in, to see your rides.')
+            if(!user){
+                Alert.alert('Not Authorized', 'Please log in to see your rides.')
+            }
             else {
                 const json = await request({
                     url: '/rides/driver',
@@ -21,8 +23,10 @@ export default function RideList({navigation}: any) {
                 setRides(json.rides)
             }
             
-        } catch(error){
-            alert("Error, please try again");
+        } catch(error: any){
+            //alert(error);
+            setRides([])
+            navigation.navigate('TabThree')
         }
     }
     useEffect(() => {

@@ -27,14 +27,15 @@ export default function SearchRides(props: SearchRidesProps) {
                     'lat1': start.latitude,
                     'long1': start.longitude,
                     'lat2': finish.latitude,
-                    'long2': finish.longitude
+                    'long2': finish.longitude,
+                    date
                 }
             })
             props.setRides(json.response);
             props.showMap();
 
         } catch (error) {
-            alert("Error, please try again");
+            //alert("Error, please try again");
         }
     }
 

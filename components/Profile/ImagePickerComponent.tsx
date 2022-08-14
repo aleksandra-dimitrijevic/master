@@ -16,7 +16,7 @@ export default function ImagePickerComponent() {
       if(user.image) setImage(user.image)
 
     } catch (error) {
-      alert("Error, please try again");
+      //alert("Error, please try again");
     }
   }
   useEffect(() => {

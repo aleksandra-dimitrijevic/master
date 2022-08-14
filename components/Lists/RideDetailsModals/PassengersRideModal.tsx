@@ -1,6 +1,6 @@
 import { FontAwesome } from '@expo/vector-icons';
 import { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { request } from '../../../services/request';
 import { Stop } from '../../../types/Rides';
 import { getCurrentUser } from '../../../types/User';
@@ -59,7 +59,7 @@ export default function PassengersRideModal({ route, navigation }: any) {
     const onSubmit = async () => {
         try {
             const user = await getCurrentUser();
-            if(!user) alert("Please log in to apply!")
+            if(!user) Alert.alert('Not Authorized', 'Please log in  to apply.')
 
             const data = {
               start,
@@ -78,7 +78,7 @@ export default function PassengersRideModal({ route, navigation }: any) {
             navigation.navigate('TabRides', {passenger: true})
             
         } catch(error){
-            alert("Error, please try again");
+            //alert("Error, please try again");
         }
     }
     

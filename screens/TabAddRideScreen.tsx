@@ -1,4 +1,4 @@
-import { StyleSheet, View } from "react-native";
+import { Alert, StyleSheet, View } from "react-native";
 import AddRideInfo from "../components/AddRide/AddRideInfo";
 import AddStops from "../components/AddRide/AddStops";
 import { useState } from "react";
@@ -16,7 +16,7 @@ export default function TabAddRideScreen( {navigation}:any) {
   const onSubmit = async () => {
     try {
         const user = await getCurrentUser();
-        if(!user) alert("Please log in to add a ride!")
+        if(!user) Alert.alert('Not Authorized', 'Please log in to  add the new ride.')
         date.setHours(time.getHours())
         date.setMinutes(time.getMinutes())
         const data = {
@@ -35,7 +35,7 @@ export default function TabAddRideScreen( {navigation}:any) {
       navigation.navigate('TabRides')
        
     } catch(error){
-        alert("Error, please try again");
+        //alert("Error, please try again");
     }
 }
 

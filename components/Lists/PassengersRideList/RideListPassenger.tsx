@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { request } from '../../../services/request';
 import { Ride } from '../../../types/Rides';
-import { getCurrentUser, User } from '../../../types/User';
+import { getCurrentUser, removeCurrentUser, User } from '../../../types/User';
 import RideItem from './RideItem';
 
 
@@ -19,7 +19,7 @@ export default function RidePassengerListSearch(props: RidePassengerListSearch) 
         try {
             const user = await getCurrentUser();
             setUser(user);
-            if(!user) alert('Please log in, to see your rides.')
+            if(!user) Alert.alert('Not Authorized', 'Please log in to see rides.')
             else {
                 const json = await request({
                     url: '/rides/passenger',
@@ -30,7 +30,9 @@ export default function RidePassengerListSearch(props: RidePassengerListSearch) 
             }
             
         } catch(error){
-            alert("Error, please try again");
+            //alert(error);
+            setRides([])
+            props.navigation.navigate('TabThree')
         }
     }
     useEffect(() => {

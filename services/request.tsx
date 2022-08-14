@@ -1,5 +1,6 @@
+import { Alert } from "react-native";
 import { SERVER_URL } from "../constants/Api";
-import { getCurrentUser } from "../types/User";
+import { getCurrentUser, removeCurrentUser } from "../types/User";
 
 export const API_URL = process?.env?.REACT_APP_API_URL || SERVER_URL;
 
@@ -45,8 +46,11 @@ export const request = async (options: RequestOptions) => {
         body: options.body && JSON.stringify(options.body),
     });
     const json = await response.json();
-    // if(response.status >= 400){
-    //     throw new Error(json.msg)
-    // }
+    
+    if(response.status >= 400){
+        if(response.status === 401) await removeCurrentUser();
+        if(json.msg) Alert.alert('Error', json.msg)
+        throw new Error(json.msg)
+    }
     return json;
 };

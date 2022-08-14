@@ -31,7 +31,7 @@ export default function ChangePassword(props: ChangePasswordProps) {
             props.navigation.navigate('TabThree')
 
         } catch (error) {
-            alert("Error, please try again");
+            //alert("Error, please try again");
         }
     }
 

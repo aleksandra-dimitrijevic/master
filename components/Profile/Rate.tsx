@@ -46,7 +46,7 @@ export default function RateComponent(props: RateComponentProps) {
             alert('Thanks for rating!')
 
         } catch (error) {
-            alert("Error, please try again");
+            //alert("Error, please try again");
         }
     }
 

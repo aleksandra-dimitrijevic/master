@@ -52,18 +52,23 @@ export default function EditUserInfo(props: EditInfoProps) {
             <View style={styles.title}>
                 <Text style={{color:'darkgray'}}>PERSONAL INFO</Text>
             </View>
-            <Input placeholder="First Name" name="firstName" control={control} rules={{ required: true }}></Input>
-            <Input placeholder="Last Name" name="lastName" control={control} rules={{ required: true }}></Input>
-            <Input placeholder="E-mail" name="email" control={control} rules={{ required: true }}></Input>
-            <Input placeholder="Phone number" name="phone" control={control}></Input>
+            <Input placeholder="First Name" name="firstName" control={control} rules={{ required: true }}/>
+            <Input placeholder="Last Name" name="lastName" control={control} rules={{ required: true }}/>
+            <Input placeholder="E-mail" name="email" control={control} 
+                rules={{ 
+                    required: true, 
+                    pattern: { value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ , message:'Please enter valid email!'}
+                }}
+            />
+            <Input placeholder="Phone number" name="phone" control={control}/>
 
             <View style={{width:'100%', alignItems: "center", paddingVertical:32}}>
                 <View style={styles.title}>
                     <Text style={{color:'darkgray'}}>CAR</Text>
                 </View>
-                <Input placeholder="Model" name="model" control={control}></Input>
-                <Input placeholder="Color" name="color" control={control}></Input>
-                <Input placeholder="Registration" name="registration" control={control}></Input>
+                <Input placeholder="Model" name="model" control={control}/>
+                <Input placeholder="Color" name="color" control={control}/>
+                <Input placeholder="Registration" name="registration" control={control}/>
             </View>
 
             <TouchableOpacity

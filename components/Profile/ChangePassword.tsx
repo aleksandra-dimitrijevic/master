@@ -37,8 +37,24 @@ export default function ChangePassword(props: ChangePasswordProps) {
 
     return (
         <View style={styles.container}>
-            <Input placeholder="Password" name="password" secureTextEntry={true} control={control} rules={{ required: true }}></Input>
-            <Input placeholder="Repeat Password" name="repeat_password" secureTextEntry={true} control={control} rules={{ required: true }}></Input>
+            <Input placeholder="Password" name="password" secureTextEntry={true} control={control} 
+                 rules={{ 
+                    required: true,
+                    pattern: {
+                        value: /^(?=.*[A-Za-z])(?=.*\d).{8,}$/,
+                        message:'You need password with minimum eight caraters, at least one letter and one number!'
+                    }
+                }}
+            />
+            <Input placeholder="Repeat Password" name="repeat_password" secureTextEntry={true} control={control} 
+                rules={{ 
+                    required: true,
+                    pattern: {
+                        value: /^(?=.*[A-Za-z])(?=.*\d).{8,}$/,
+                        message:'You need password with minimum eight caraters, at least one letter and one number!'
+                    }
+                }}
+            />
             <TouchableOpacity
                 style={{ padding: 8, backgroundColor: "#00C897", borderRadius: 5, width: '90%' }}
                 onPress={handleSubmit(onSubmit)}

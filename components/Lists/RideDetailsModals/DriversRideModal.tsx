@@ -27,7 +27,7 @@ export default function DriversRideModalDriver({ route, navigation }: any) {
             navigation.navigate('TabRides')
             
         } catch(error){
-            //alert("Error, please try again");
+            alert("Error, please try again");
         }
     }
     

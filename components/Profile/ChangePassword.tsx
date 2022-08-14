@@ -1,6 +1,6 @@
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import { useForm } from 'react-hook-form'
-import Input from "../Input";
+import Input from "../basic/Input";
 import { request } from "../../services/request";
 import { useState } from "react";
 

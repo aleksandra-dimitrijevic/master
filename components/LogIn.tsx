@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import { SERVER_URL } from "../constants/Api";
 import { storeCurrentUser, User } from "../types/User";
-import Input from "./Input";
+import Input from "./basic/Input";
 
 type LogInProps = {
     setUser : ( user: User) => void;

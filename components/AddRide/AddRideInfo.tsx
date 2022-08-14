@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, StyleSheet, TouchableOpacity, View, Text } from "react-native";
+import SubmitButton from "../basic/SubmitBotton";
 import DateTimePickerComponent from "./DateTimePickerComponent";
 import NumberPeopleInput from "./NumberPeopleInput";
 
@@ -53,9 +54,7 @@ function AddRideInfo(props: AddRideInfoProps) {
         style={styles.field}
       />
 
-      <View style={{ marginTop: 32 }}>
-        <Button color="#00C897" title='SUBMIT' onPress={submit} />
-      </View>
+      <SubmitButton title='SUBMIT' action={submit} width={200}></SubmitButton>
 
     </View>
   );

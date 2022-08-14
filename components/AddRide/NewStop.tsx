@@ -30,7 +30,8 @@ const styles = StyleSheet.create({
         marginBottom: 8,
         borderRadius: 10,
         padding: 8,
-        width: '100%'
+        width: '100%',
+        justifyContent:'space-between'
     },
     stopNumber: {
         backgroundColor: "#00C897",

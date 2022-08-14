@@ -1,9 +1,9 @@
 import { FontAwesome } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
-import { ColorSchemeName, Pressable } from 'react-native';
+import { Pressable } from 'react-native';
 import ChangePassword from '../components/Profile/ChangePassword';
 import EditUserInfo from '../components/Profile/EditUserInfo';
 import PublicProfile from '../components/Profile/PublicProfile';
@@ -72,14 +72,17 @@ function BottomTabNavigator() {
     <BottomTab.Navigator
       initialRouteName="TabSearch"
       screenOptions={{
+        tabBarStyle:{height: 60},
         tabBarActiveTintColor: Colors[colorScheme].tint,
-      }}>
+        tabBarLabelStyle: {paddingBottom: 8, fontSize:12}
+      }}
+      >
       <BottomTab.Screen
         name="TabSearch"
         component={TabSearchScreen}
         options={({ navigation }: RootTabScreenProps<'TabSearch'>) => ({
           title: 'Search',
-          tabBarIcon: ({ color }) => <TabBarIcon name="search" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="search" color={color}/>,
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate('Modal')}
@@ -129,5 +132,5 @@ function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>['name'];
   color: string;
 }) {
-  return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
+  return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props}/>;
 }

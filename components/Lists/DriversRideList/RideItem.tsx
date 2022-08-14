@@ -19,9 +19,11 @@ export default function RideItem(props: RideItemProps) {
                 <View>
                     <RideSeats passengersNumber={ride.passengersNumber} available={ride.availableSeats} />
                 </View>
-                <View>
+                <View style={{flexDirection:'row'}}>
                     <RideDate date={ride.date}/>
-                    <RideTime time={ride.date} />
+                    <View style={{marginLeft:16}}>
+                        <RideTime time={ride.date} />
+                    </View>
                 </View>
             </View>
             

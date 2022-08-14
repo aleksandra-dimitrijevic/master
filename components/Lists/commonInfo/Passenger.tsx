@@ -4,13 +4,15 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { request } from '../../../services/request';
 import { Stop } from '../../../types/Rides';
 import { User } from '../../../types/User';
+import RideDriver from './RideDriver';
 import StopComponent from './StopComponent';
 
 type PassengerProps = {
     user: User,
     start: Stop,
     finish: Stop,
-    rideId: number
+    rideId: number,
+    navigation: any
 }
 export default function Passenger(props: PassengerProps) {
     const {user, start, finish, rideId} = props;
@@ -33,22 +35,17 @@ export default function Passenger(props: PassengerProps) {
             setDeleted(true);
            
         } catch(error){
-            alert("Error, please try again");
+            //alert("Error, please try again");
         }
     }
 
     return (
         <View style={styles.passenger}>
             <View style={{flexDirection:'row', justifyContent:'space-between'}}>
-                <View style={styles.driver}>
-                    <FontAwesome size={20} name='user-o' />
-                    <Text style={styles.driverText}>
-                        {user.firstName + ' ' + user.lastName}
-                    </Text>
-                </View>
-                <View style={styles.driver}>
+                <RideDriver driver={user} navigation={props.navigation}/>
+                <View style={styles.phone}>
                     <FontAwesome size={20} name='phone' color='#00C897' />
-                    <Text style={[styles.driverText, {color:'#00C897'}]}>
+                    <Text style={[styles.phoneText, {color:'#00C897'}]}>
                         {user.phone}
                     </Text>
                 </View>
@@ -66,9 +63,9 @@ export default function Passenger(props: PassengerProps) {
             />
 
             {!deleted && <TouchableOpacity style={styles.declineButton} onPress={onDecline}>
-                <Text style={{color:'white', textAlign:'center'}}>Decline</Text>
+                <Text style={styles.redText}>Decline</Text>
             </TouchableOpacity>}
-            { deleted && <Text style={{color:'red', textAlign:'center'}}> User Declined</Text>}
+            { deleted && <Text style={styles.redText}> User Declined</Text>}
         </View>
         
     );
@@ -82,18 +79,24 @@ const styles = StyleSheet.create({
         padding: 16,
         marginTop:16,
     },
-    driver: {
+    phone: {
         flexDirection: 'row',
         marginBottom: 16
     },
-    driverText: {
+    phoneText: {
         color: 'black',
         paddingLeft: 8,
         fontWeight: 'bold'
     },
     declineButton:{
         padding:8,
-        backgroundColor: 'red',
-        marginTop:8
+        backgroundColor: 'white',
+        marginTop:8,
+        borderWidth:1,
+        borderColor:'red'
+    },
+    redText: {
+        color:'red', 
+        textAlign:'center'
     }
 });

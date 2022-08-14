@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end'
     },
     timeText: {
-        fontSize: 16,
         color: '#00C897',
         paddingLeft: 8
     },

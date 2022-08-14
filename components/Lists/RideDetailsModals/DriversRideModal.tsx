@@ -27,7 +27,7 @@ export default function DriversRideModalDriver({ route, navigation }: any) {
             navigation.navigate('TabRides')
             
         } catch(error){
-            alert("Error, please try again");
+            //alert("Error, please try again");
         }
     }
     
@@ -38,9 +38,11 @@ export default function DriversRideModalDriver({ route, navigation }: any) {
                 <View>
                     <RideSeats passengersNumber={ride.passengersNumber} available={ride.availableSeats} />
                 </View>
-                <View>
+                <View style={{flexDirection:'row'}}>
                     <RideDate date={ride.date}/>
-                    <RideTime time={ride.date} />
+                    <View style={{marginLeft:16}}>
+                        <RideTime time={ride.date} />
+                    </View>
                 </View>
             </View>
             
@@ -59,11 +61,12 @@ export default function DriversRideModalDriver({ route, navigation }: any) {
                     start = {ride.stops[passenger.start]}
                     finish = {ride.stops[passenger.finish]}
                     rideId = {ride._id}
+                    navigation = {navigation}
                 />
             )}
 
-            <TouchableOpacity onPress={onDelete} style={{margin:32}}>
-                <Text style={{color:'red', textAlign:'center'}}>Delete</Text>
+            <TouchableOpacity onPress={onDelete} style={styles.deleteButton}>
+                <Text style={{color:'white', textAlign:'center'}}>Delete Ride</Text>
             </TouchableOpacity>
             
         </ScrollView>
@@ -72,11 +75,12 @@ export default function DriversRideModalDriver({ route, navigation }: any) {
 
 const styles = StyleSheet.create({
     container: {
-        flex:1
+        flex:1,
+        backgroundColor:'white'
     },
-    submitButton:{
+    deleteButton:{
         padding:8,
-        backgroundColor: '#00C897',
+        backgroundColor: 'red',
         marginTop:32
     }
 });

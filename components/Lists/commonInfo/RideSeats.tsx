@@ -9,7 +9,7 @@ export default function RideSeats(props: RideSeatsProps) {
     const full = props.passengersNumber - props.available
     return (
         <View style={styles.seats}>
-            <FontAwesome size={16} name='car' />
+            <FontAwesome size={18} name='car' />
             <Text style={styles.seatsText}>
                 {full+ ' / ' + props.passengersNumber}
             </Text>
@@ -25,6 +25,5 @@ const styles = StyleSheet.create({
     seatsText: {
         color: 'black',
         paddingLeft: 8,
-        fontWeight: 'bold'
     }
 });

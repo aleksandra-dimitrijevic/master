@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 import { Rating } from 'react-native-ratings';
 import { request } from '../../services/request';
-import { getCurrentUser, User } from '../../types/User';
+import { getCurrentUser } from '../../services/asyncStorage';
 import ProfileMenuItem from './ProfileMenuItem';
+import { User } from '../../types/User';
 
 type RateComponentProps = {
     user: User

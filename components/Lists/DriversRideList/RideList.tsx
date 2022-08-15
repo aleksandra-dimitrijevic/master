@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Alert, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { request } from '../../../services/request';
 import { Ride } from '../../../types/Rides';
-import { getCurrentUser, removeCurrentUser } from '../../../types/User';
+import { getCurrentUser, removeCurrentUser } from '../../../services/asyncStorage';
 import RideItem from './RideItem';
 
 export default function RideList({navigation}: any) {
@@ -25,7 +25,6 @@ export default function RideList({navigation}: any) {
             
         } catch(error: any){
             setRides([])
-            navigation.navigate('TabThree')
         }
     }
     useEffect(() => {

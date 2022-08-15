@@ -3,7 +3,7 @@ import AddRideInfo from "../components/AddRide/AddRideInfo";
 import AddStops from "../components/AddRide/AddStops";
 import { useState } from "react";
 import { Location } from "../types/Rides";
-import { getCurrentUser } from "../types/User";
+import { getCurrentUser } from "../services/asyncStorage";
 import { request } from "../services/request";
 
 export default function TabAddRideScreen( {navigation}:any) {

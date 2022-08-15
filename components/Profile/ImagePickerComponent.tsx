@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Image, View, Platform, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { Image, View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { SERVER_URL } from '../../constants/Api';
-import { getCurrentUser, storeCurrentUser, User } from '../../types/User';
+import { getCurrentUser, storeCurrentUser } from '../../services/asyncStorage';
 import { FontAwesome } from '@expo/vector-icons';
 
 export default function ImagePickerComponent() {

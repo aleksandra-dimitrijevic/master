@@ -1,6 +1,6 @@
 import { Alert } from "react-native";
 import { SERVER_URL } from "../constants/Api";
-import { getCurrentUser, removeCurrentUser } from "../types/User";
+import { getCurrentUser, removeCurrentUser } from "../services/asyncStorage";
 
 export const API_URL = process?.env?.REACT_APP_API_URL || SERVER_URL;
 

@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Alert, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, ScrollView, StyleSheet, View } from 'react-native';
 import { request } from '../../../services/request';
 import { Ride } from '../../../types/Rides';
-import { getCurrentUser, removeCurrentUser, User } from '../../../types/User';
+import { getCurrentUser } from '../../../services/asyncStorage';
 import RideItem from './RideItem';
+import { User } from '../../../types/User';
 
 
 type RidePassengerListSearch = {
@@ -31,7 +32,6 @@ export default function RidePassengerListSearch(props: RidePassengerListSearch) 
             
         } catch(error){
             setRides([])
-            props.navigation.navigate('TabThree')
         }
     }
     useEffect(() => {

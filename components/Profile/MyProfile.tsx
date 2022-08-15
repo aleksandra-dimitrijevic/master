@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { getCurrentUser, removeCurrentUser, User } from '../../types/User';
+import { View, Text, StyleSheet } from 'react-native';
+import { getCurrentUser, removeCurrentUser } from '../../services/asyncStorage';
 import ImagePickerComponent from './ImagePickerComponent';
 import UserInfo from './UserInfo';
 import ProfileMenuItem from './ProfileMenuItem';
+import { User } from '../../types/User';
 
 function MyProfile({ navigation, setUser }: any) {
 

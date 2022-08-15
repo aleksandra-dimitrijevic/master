@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Alert, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { request } from '../../../services/request';
 import { Stop } from '../../../types/Rides';
-import { getCurrentUser } from '../../../types/User';
+import { getCurrentUser } from '../../../services/asyncStorage';
 import RideDate from '../commonInfo/RideDate';
 import RideDriver from '../commonInfo/RideDriver';
 import RideSeats from '../commonInfo/RideSeats';

@@ -2,7 +2,7 @@ import { Text, View, StyleSheet, TouchableOpacity, ScrollView } from "react-nati
 import { useForm } from 'react-hook-form'
 import Input from "../basic/Input";
 import { request } from "../../services/request";
-import { storeCurrentUser, User } from "../../types/User";
+import { storeCurrentUser } from "../../services/asyncStorage";
 import { useEffect } from "react";
 
 type EditInfoProps = {

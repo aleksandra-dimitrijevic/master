@@ -3,6 +3,7 @@ import { User } from '../../types/User';
 import { Rating } from 'react-native-ratings';
 import { useEffect, useState } from 'react';
 import ProfileMenuItem from './ProfileMenuItem';
+import { lightGreen } from '../../constants/Colors';
 
 type UserInfoProps = {
     user: User
@@ -28,7 +29,7 @@ export default function UserInfo(props: UserInfoProps) {
                     fractions={1}
                     startingValue={rating || 0}
                     readonly={true}
-                    ratingColor='#00C897'
+                    ratingColor={lightGreen}
                 />
                 <Text style={styles.votes}>{user.ratesNumber || 0} votes</Text>
             </View>
@@ -60,7 +61,7 @@ export default function UserInfo(props: UserInfoProps) {
 const styles = StyleSheet.create({
     name: {
         fontWeight: 'bold',
-        color: '#00C897',
+        color: lightGreen,
         fontSize: 20,
     },
     votes: {

@@ -1,4 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { lightGreen } from '../../constants/Colors';
 
 type NumberPeopleInputProps = {
     count: number,
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
         borderRadius: 100,
         width: 60,
         height: 30,
-        backgroundColor: "#00C897",
+        backgroundColor: lightGreen,
     },
     count: {
         marginLeft: 16,

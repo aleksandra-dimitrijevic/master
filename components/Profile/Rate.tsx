@@ -5,6 +5,7 @@ import { request } from '../../services/request';
 import { getCurrentUser } from '../../services/asyncStorage';
 import ProfileMenuItem from './ProfileMenuItem';
 import { User } from '../../types/User';
+import { lightGreen } from '../../constants/Colors';
 
 type RateComponentProps = {
     user: User
@@ -69,7 +70,7 @@ export default function RateComponent(props: RateComponentProps) {
                 fractions={0}
                 startingValue={user.rates.find(e => e.user==currentUser?._id)?.rate || 0}
             />
-            <Button title='RATE' onPress={onRate} color='#00C897' />
+            <Button title='RATE' onPress={onRate} color={lightGreen} />
         </View>
     );
 }

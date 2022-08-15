@@ -2,6 +2,7 @@ import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import { useForm} from 'react-hook-form'
 import Input from "./basic/Input";
 import { SERVER_URL } from "../constants/Api";
+import { lightGreen } from "../constants/Colors";
 
 export default function Register({ navigation }: any) {
 
@@ -46,7 +47,7 @@ export default function Register({ navigation }: any) {
                     }
             }}/>
             <TouchableOpacity
-                style={{ padding: 8, backgroundColor: "#00C897", borderRadius: 5, width: '90%' }}
+                style={{ padding: 8, backgroundColor: lightGreen, borderRadius: 5, width: '90%' }}
                 onPress={handleSubmit(onSubmit)}
             >
                 <Text style={{ color: "white", textAlign: "center" }}> REGISTER</Text>
@@ -60,6 +61,6 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         paddingTop: 32,
-        backgroundColor: 'rgb(232,232,232)',
+        backgroundColor: 'white',
     }
 });

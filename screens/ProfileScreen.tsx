@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import LogIn from '../components/LogIn';
 import MyProfile from '../components/Profile/MyProfile';
+import { lightGreen } from '../constants/Colors';
 import { getCurrentUser } from '../services/asyncStorage';
 import { User } from '../types/User';
 
@@ -35,7 +36,7 @@ function ProfileScreen({ navigation }: any) {
           style={{ marginTop: 32 }}
           onPress={() => navigation.navigate('Register')}
         >
-          <Text style={{ color: "#00C897" }}> Register?</Text>
+          <Text style={{ color: lightGreen }}> Register?</Text>
         </TouchableOpacity>
       </>}
       {currentUser && <MyProfile navigation={navigation} setUser={setCurrentUser}/>}

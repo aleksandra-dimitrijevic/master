@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, StyleSheet, TouchableOpacity, View, Text } from "react-native";
+import { lightGreen } from "../../constants/Colors";
 import SubmitButton from "../basic/SubmitBotton";
 import DateTimePickerComponent from "./DateTimePickerComponent";
 import NumberPeopleInput from "./NumberPeopleInput";
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
   },
   backButton: {
     padding: 8,
-    backgroundColor: "#00C897",
+    backgroundColor: lightGreen,
     borderRadius: 15
   },
   label: {

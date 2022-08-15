@@ -1,5 +1,6 @@
 import { FontAwesome } from '@expo/vector-icons';
 import { StyleSheet, Text, View } from 'react-native';
+import { lightGreen } from '../../../constants/Colors';
 
 type RideDateProps = {
     date: Date
@@ -8,7 +9,7 @@ export default function RideDate(props: RideDateProps) {
 
     return (
         <View style={styles.time}>
-            <FontAwesome size={18} name='calendar-o' color='#00C897' />
+            <FontAwesome size={18} name='calendar-o' color={lightGreen} />
             <Text style={styles.timeText}>{new Date(props.date).toLocaleDateString()}</Text>
         </View>
     );
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end'
     },
     timeText: {
-        color: '#00C897',
+        color: lightGreen,
         paddingLeft: 8
     },
 

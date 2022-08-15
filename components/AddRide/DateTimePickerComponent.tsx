@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "react-native";
 import DateTimePicker from "react-native-modal-datetime-picker";
+import { lightGreen } from "../../constants/Colors";
 
 type DateTimePickerProps = {
   date: Date;
@@ -37,7 +38,7 @@ export default function DateTimePickerComponent({ date, setDate, mode }: DateTim
   return (
     <>
       <Button
-        color="#00C897"
+        color={lightGreen}
         title={mode === 'date' ? getDate() : getTime()}
         onPress={showDatePicker}
       />

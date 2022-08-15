@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
+import { lightGreen } from '../../constants/Colors';
 
 type StopInputProps = {
     title: string,
@@ -27,7 +28,7 @@ const styles = StyleSheet.create({
         width:'100%'
       },
       inputLabel: {
-        backgroundColor: "#00C897",
+        backgroundColor: lightGreen,
         paddingLeft: 8,
         paddingRight: 8,
         borderRadius: 10,

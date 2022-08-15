@@ -4,6 +4,7 @@ import { Location } from "../../types/Rides";
 import { fetchAddress } from "../../services/address";
 import NewStop from "./NewStop";
 import Map from "./Map";
+import { lightGreen } from "../../constants/Colors";
 
 type AddStopsProps = {
   showMap: () => void,
@@ -45,7 +46,7 @@ export default function AddStops({ showMap, setCoordinates, coordinates }: AddSt
         setCoordinates={setCoordinates}
       />
       <View style={styles.stopsWrapper}>
-        <Button color="#00C897" title="+ New stop" onPress={newMarker} />
+        <Button color={lightGreen} title="+ New stop" onPress={newMarker} />
         <ScrollView style={styles.scrollView}>
           {coordinates.map((coord, index) => (
             <NewStop
@@ -89,7 +90,7 @@ const styles = StyleSheet.create({
   },
   backButton:{
     padding: 8, 
-    backgroundColor: '#00C897', 
+    backgroundColor: lightGreen, 
     borderRadius: 15
   }
 });

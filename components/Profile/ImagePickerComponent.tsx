@@ -4,6 +4,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { SERVER_URL } from '../../constants/Api';
 import { getCurrentUser, storeCurrentUser } from '../../services/asyncStorage';
 import { FontAwesome } from '@expo/vector-icons';
+import { lightGreen } from '../../constants/Colors';
 
 export default function ImagePickerComponent() {
   const [image, setImage] = useState<string>('');
@@ -68,7 +69,7 @@ export default function ImagePickerComponent() {
   return (
     <View style={{ alignItems: 'center' }}>
       <TouchableOpacity onPress={pickImage}>
-        <Text style={{ color: '#00C897' }}>Change Profile Picture</Text>
+        <Text style={{ color: lightGreen }}>Change Profile Picture</Text>
       </TouchableOpacity>
       {image!='' && <Image 
         source={{ uri: `${SERVER_URL}/users/picture/${image}`}} 

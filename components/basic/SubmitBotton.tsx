@@ -1,4 +1,5 @@
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import { lightGreen } from "../../constants/Colors";
 
 type SubmitButtonProps = {
     action : () => void;
@@ -20,7 +21,7 @@ export default function SubmitButton({action, title, width}: SubmitButtonProps) 
 const styles = StyleSheet.create({
     button: {
         padding: 8, 
-        backgroundColor: "#00C897", 
+        backgroundColor: lightGreen, 
         borderRadius: 5, 
         marginTop: 32
     },

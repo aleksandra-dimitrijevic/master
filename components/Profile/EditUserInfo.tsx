@@ -4,6 +4,7 @@ import Input from "../basic/Input";
 import { request } from "../../services/request";
 import { storeCurrentUser } from "../../services/asyncStorage";
 import { useEffect } from "react";
+import { lightGreen } from "../../constants/Colors";
 
 type EditInfoProps = {
     route: any,
@@ -72,7 +73,7 @@ export default function EditUserInfo(props: EditInfoProps) {
             </View>
 
             <TouchableOpacity
-                style={{ padding: 8, backgroundColor: "#00C897", borderRadius: 5, width: '90%' }}
+                style={{ padding: 8, backgroundColor: lightGreen, borderRadius: 5, width: '90%' }}
                 onPress={handleSubmit(onSubmit)}
             >
                 <Text style={{ color: "white", textAlign: "center" }}> CHANGE</Text>

@@ -1,6 +1,7 @@
 import { FontAwesome } from '@expo/vector-icons';
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { lightGreen } from '../../constants/Colors';
 import { User } from '../../types/User';
 
 type ProfileMenuItem = {
@@ -24,7 +25,7 @@ function ProfileMenuItem({ navigation, user, path, icon, title, action }: Profil
         style={styles.item}
         onPress={handleAction}
     >
-        <FontAwesome size={18} name={icon} color='#00C897' />
+        <FontAwesome size={18} name={icon} color={lightGreen} />
         <Text style={styles.title}> {title}</Text>
     </TouchableOpacity>
   )

@@ -11,7 +11,6 @@ import Register from '../components/Register';
 import PassengersRideModal from '../components/Lists/RideDetailsModals/PassengersRideModal';
 import DriversRideModal from '../components/Lists/RideDetailsModals/DriversRideModal';
 
-import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
@@ -21,13 +20,15 @@ import TabSearchScreen from '../screens/TabSearchScreen';
 import TabAddRideScreen from '../screens/TabAddRideScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types/Navigation';
 import LinkingConfiguration from './LinkingConfiguration';
+import { lightGreen } from '../constants/Colors';
+
 
 const MyTheme = {
   dark: true,
   colors: {
     primary: 'rgb(255, 45, 85)',
-    background: 'rgb(242, 242, 242)',
-    card: '#00C897',
+    background: 'white',
+    card: lightGreen,
     text: 'white',
     border: 'rgb(199, 199, 204)',
     notification: 'rgb(255, 69, 58)',
@@ -67,13 +68,13 @@ const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 function BottomTabNavigator() {
   const colorScheme = useColorScheme();
-
+  
   return (
     <BottomTab.Navigator
       initialRouteName="TabSearch"
       screenOptions={{
         tabBarStyle:{height: 60},
-        tabBarActiveTintColor: Colors[colorScheme].tint,
+        tabBarActiveTintColor: '#fff',
         tabBarLabelStyle: {paddingBottom: 8, fontSize:12}
       }}
       >
@@ -92,7 +93,7 @@ function BottomTabNavigator() {
               <FontAwesome
                 name="info-circle"
                 size={25}
-                color={Colors[colorScheme].text}
+                color='white'
                 style={{ marginRight: 15 }}
               />
             </Pressable>

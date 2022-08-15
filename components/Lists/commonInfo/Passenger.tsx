@@ -1,6 +1,7 @@
 import { FontAwesome } from '@expo/vector-icons';
 import { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { lightGreen } from '../../../constants/Colors';
 import { request } from '../../../services/request';
 import { Stop } from '../../../types/Rides';
 import { User } from '../../../types/User';
@@ -44,8 +45,8 @@ export default function Passenger(props: PassengerProps) {
             <View style={{flexDirection:'row', justifyContent:'space-between'}}>
                 <RideDriver driver={user} navigation={props.navigation}/>
                 <View style={styles.phone}>
-                    <FontAwesome size={20} name='phone' color='#00C897' />
-                    <Text style={[styles.phoneText, {color:'#00C897'}]}>
+                    <FontAwesome size={20} name='phone' color={lightGreen} />
+                    <Text style={[styles.phoneText, {color:lightGreen}]}>
                         {user.phone}
                     </Text>
                 </View>

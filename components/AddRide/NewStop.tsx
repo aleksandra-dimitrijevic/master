@@ -1,4 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { lightGreen } from '../../constants/Colors';
 
 type NewStopProps = {
     address: string,
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
         justifyContent:'space-between'
     },
     stopNumber: {
-        backgroundColor: "#00C897",
+        backgroundColor: lightGreen,
         paddingLeft: 8,
         paddingRight: 8,
         borderRadius: 10,

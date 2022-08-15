@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import { SERVER_URL } from "../constants/Api";
+import { lightGreen } from "../constants/Colors";
 import { storeCurrentUser } from "../services/asyncStorage";
 import { User } from "../types/User";
 import Input from "./basic/Input";
@@ -37,7 +38,7 @@ export default function LogIn (props: LogInProps) {
             <Input placeholder="E-mail" name="email" control={control} rules={{ required: true }}/>
             <Input placeholder="Password" name="password" secureTextEntry={true} control={control} rules={{ required: true }}/>
             <TouchableOpacity
-                style={{ padding: 8, backgroundColor: "#00C897", borderRadius: 5, width:'90%' }}
+                style={{ padding: 8, backgroundColor: lightGreen, borderRadius: 5, width:'90%' }}
                 onPress={handleSubmit(onSubmit)}
                 >
                 <Text style={{ color: "white", textAlign:"center" }}> LOG IN</Text>

@@ -10,6 +10,7 @@ import RideSeats from '../commonInfo/RideSeats';
 import StopComponent from '../commonInfo/StopComponent';
 import RideTime from '../commonInfo/RideTime';
 import MapStops from './MapStops';
+import { lightGreen } from '../../../constants/Colors';
 
 type PassengersRideModalProps = {
 
@@ -125,7 +126,7 @@ const styles = StyleSheet.create({
     },
     submitButton:{
         padding:8,
-        backgroundColor: '#00C897',
+        backgroundColor: lightGreen,
         marginTop:32
     },
     cancelButton:{

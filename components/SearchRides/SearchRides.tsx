@@ -6,6 +6,7 @@ import { request } from "../../services/request";
 import StopInput from "./StopInput";
 import DatePickerComponent from "./DatePickerComponent";
 import MapSearch from "./MapSearch";
+import { lightGreen } from "../../constants/Colors";
 
 type SearchRidesProps = {
     showMap: () => void,
@@ -52,7 +53,7 @@ export default function SearchRides(props: SearchRidesProps) {
                 <StopInput title='FINISH' address={finish.label} />
                 <DatePickerComponent date={date} setDate={(d) => setDate(d)} />
                 <View style={{ marginTop: 8 }}>
-                    <Button color="#00C897" title="Search" onPress={onSearch} />
+                    <Button color={lightGreen} title="Search" onPress={onSearch} />
                 </View>
             </View>
         </View>

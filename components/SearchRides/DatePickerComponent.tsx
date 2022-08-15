@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import DateTimePicker from 'react-native-modal-datetime-picker';
+import { lightGreen } from '../../constants/Colors';
 
 type DatePickerComponentProps = {
     date: Date,
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
         width: '100%'
     },
     inputLabel: {
-        backgroundColor: "#00C897",
+        backgroundColor: lightGreen,
         paddingLeft: 8,
         paddingRight: 8,
         borderRadius: 10,

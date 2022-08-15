@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import RidePassengerListSearch from '../components/Lists/PassengersRideList/RideListPassenger';
 import RideList from '../components/Lists/DriversRideList/RideList';
+import { lightGreen } from '../constants/Colors';
 
 
 export default function RidesScreen({ navigation, route }: any) {
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
     width: '50%',
     padding: 8,
     borderBottomWidth: 3,
-    borderColor: '#00C897',
+    borderColor: lightGreen,
   },
   tab: {
     backgroundColor: 'white',
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
     padding: 8
   },
   text: {
-    color: '#00C897',
+    color: lightGreen,
     textAlign: 'center'
   }
 });

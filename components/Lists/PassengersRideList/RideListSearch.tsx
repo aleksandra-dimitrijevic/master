@@ -1,4 +1,5 @@
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { lightGreen } from '../../../constants/Colors';
 import { RideSearch } from '../../../types/Rides';
 import RideItem from './RideItem';
 
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
     },
     backButton: {
         padding: 8,
-        backgroundColor: "#00C897",
+        backgroundColor: lightGreen,
         borderRadius: 15,
         marginTop: 16
     }

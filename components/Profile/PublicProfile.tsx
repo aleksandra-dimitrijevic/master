@@ -1,9 +1,11 @@
 import { FontAwesome } from '@expo/vector-icons';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { View, StyleSheet, Image } from 'react-native';
 import UserInfo from './UserInfo';
 import { SERVER_URL } from '../../constants/Api';
 import RateComponent from './Rate';
+import { request } from '../../services/request';
+import { User } from '../../types/User';
 
 type PublicProfileProps = {
 
@@ -11,18 +13,37 @@ type PublicProfileProps = {
 function PublicProfile({ route }: any) {
 
     const { driver } = route.params;
-    const image = driver.image;    
+    const [user, setUser] = useState<User>()
+    
+    async function init() {
+        try {
+            const json = await request({
+                method: 'GET',
+                url: `/users/${driver._id}`,
+            })
+            setUser(json.user);
+        } catch (e) {
+            console.warn(e);
+        }
+    }
+
+    useEffect(() => {
+        init();
+    }, []);
 
     return (
         <View style={styles.container}>
-            <Image
-                source={{ uri: `${SERVER_URL}/users/picture/${image}` }}
-                style={image ? styles.image : styles.hide}
+            { user && <>
+                <Image
+                    source={{ uri: `${SERVER_URL}/users/picture/${user.image}` }}
+                    style={user.image ? styles.image : styles.hide}
 
-            />
-            <FontAwesome size={100} name='user-o' color='black' style={!image ? styles.cameraIcon : styles.hide} />
-            <UserInfo user={driver} />
-            <RateComponent user={driver}/>
+                />
+                <FontAwesome size={100} name='user-o' color='black' style={!user.image ? styles.cameraIcon : styles.hide} />
+                <UserInfo user={user} />
+                <RateComponent user={user}/>
+            </>
+            }
         </View>
     )
 }

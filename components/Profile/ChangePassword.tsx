@@ -8,11 +8,10 @@ import { lightGreen } from "../../constants/Colors";
 type ChangePasswordProps = {
     route: any,
     navigation: any,
-    _id: string
 }
 
 export default function ChangePassword(props: ChangePasswordProps) {
-
+    const { user } = props.route.params;
     const { control, handleSubmit } = useForm();
     const [msg, setMsg] = useState('')
 
@@ -22,10 +21,10 @@ export default function ChangePassword(props: ChangePasswordProps) {
                 setMsg('Passwords not match!')
                 return
             } else setMsg('');
-
+            
             const json = await request({
                 method: 'PATCH',
-                url: `/users/${props._id}`,
+                url: `/users/password/${user._id}`,
                 body: data
             })
             alert('Successfully changed!')

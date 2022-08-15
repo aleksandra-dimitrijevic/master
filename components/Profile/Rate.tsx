@@ -33,7 +33,6 @@ export default function RateComponent(props: RateComponentProps) {
     
     const onRate = async () => {
         try {
-            console.log(rating)
             const currentUser = await getCurrentUser()
             const json = await request({
                 method: 'PATCH',

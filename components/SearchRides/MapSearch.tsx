@@ -3,7 +3,8 @@ import MapView, { Marker } from "react-native-maps";
 import React from "react";
 import pinIcon from "../../components/pin2.png";
 import { Location } from "../../types/Rides";
-import { fetchAddress } from "../../types/Rides";
+import { fetchAddress } from "../../services/address";
+import Pin from "../basic/Pin";
 
 
 type MapSearchProps = {
@@ -39,7 +40,7 @@ export default function MapSearch({ start, finish, setStart, setFinish }: MapSea
           setStart({ latitude, longitude, label: l })
         }}
       >
-        <Text style={{ fontWeight: "bold" }}>START</Text>
+        <Pin label='START'/>
       </Marker>
       <Marker
         draggable
@@ -51,7 +52,7 @@ export default function MapSearch({ start, finish, setStart, setFinish }: MapSea
           setFinish({ latitude, longitude, label: l })
         }}
       >
-        <Text style={{ fontWeight: "bold" }}>FINISH</Text>
+        <Pin label='FINISH'/>
       </Marker>
     </MapView>
 

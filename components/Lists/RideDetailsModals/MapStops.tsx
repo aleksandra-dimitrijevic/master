@@ -3,6 +3,7 @@ import MapView, { Marker } from "react-native-maps";
 import React from "react";
 import { Stop } from "../../../types/Rides";
 import pinIcon from "../../../components/pin2.png";
+import Pin from "../../basic/Pin";
 
 type MapStopsProps = {
   stops: Stop[];
@@ -31,7 +32,7 @@ export default function MapStops(props: MapStopsProps) {
             image={pinIcon}
             coordinate={{ latitude: stop.location.coordinates[1], longitude: stop.location.coordinates[0] }}
           >
-            <Text style={{fontWeight:"bold", color:'black'}}>{index + 1}</Text>
+            <Pin label={index+1}/>
           </Marker>
         ))}
       </MapView>

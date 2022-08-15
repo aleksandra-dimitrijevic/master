@@ -1,9 +1,10 @@
-import { Text, StyleSheet } from "react-native";
+import { Text, StyleSheet, View } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import React from "react";
 import pinIcon from "../../components/pin2.png";
 import { Location } from "../../types/Rides";
-import { fetchAddress } from "../../types/Rides";
+import { fetchAddress } from "../../services/address";
+import Pin from "../basic/Pin";
 
 const initRegion = {
     latitude: 44.811879,
@@ -39,7 +40,7 @@ export default function Map(props: MapProps) {
               props.setCoordinates(arr);
             }}
           >
-            <Text style={{fontWeight:"bold"}}>{index + 1}</Text>
+            <Pin label={index+1}/>
           </Marker>
         ))}
       </MapView>

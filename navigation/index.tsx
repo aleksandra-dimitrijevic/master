@@ -10,8 +10,6 @@ import PublicProfile from '../components/Profile/PublicProfile';
 import Register from '../components/Register';
 import PassengersRideModal from '../components/Lists/RideDetailsModals/PassengersRideModal';
 import DriversRideModal from '../components/Lists/RideDetailsModals/DriversRideModal';
-
-import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import ProfileScreen from '../screens/ProfileScreen';
@@ -67,7 +65,6 @@ function RootNavigator() {
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 function BottomTabNavigator() {
-  const colorScheme = useColorScheme();
   
   return (
     <BottomTab.Navigator

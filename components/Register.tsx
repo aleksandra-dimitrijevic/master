@@ -26,7 +26,6 @@ export default function Register({ navigation }: any) {
             alert("Error, please try again");
         }
     }
-
     return (
         <View style={styles.container}>
             <Input placeholder="First Name"  name="firstName" control={control} rules={{ required: true }}/>
@@ -34,7 +33,10 @@ export default function Register({ navigation }: any) {
             <Input placeholder="E-mail" name="email" control={control} 
                 rules={{ 
                     required: true, 
-                    pattern: { value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ , message:'Please enter valid email!'}
+                    pattern: { 
+                        value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 
+                        message:'Please enter valid email!'
+                    }
                 }}
             />
             <Input placeholder="Phone number" name="phone" control={control}/>
@@ -47,10 +49,10 @@ export default function Register({ navigation }: any) {
                     }
             }}/>
             <TouchableOpacity
-                style={{ padding: 8, backgroundColor: lightGreen, borderRadius: 5, width: '90%' }}
+                style={ styles.button }
                 onPress={handleSubmit(onSubmit)}
             >
-                <Text style={{ color: "white", textAlign: "center" }}> REGISTER</Text>
+                <Text style={ styles.buttonText }> REGISTER</Text>
             </TouchableOpacity>
         </View>
     )
@@ -62,5 +64,15 @@ const styles = StyleSheet.create({
         alignItems: "center",
         paddingTop: 32,
         backgroundColor: 'white',
+    },
+    button: {
+        padding: 8, 
+        backgroundColor: lightGreen, 
+        borderRadius: 5, 
+        width: '90%' 
+    },
+    buttonText: {
+        color: "white", 
+        textAlign: "center" 
     }
 });

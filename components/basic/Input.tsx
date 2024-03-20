@@ -11,7 +11,7 @@ function Input({ name, control, rules, ...rest }: any) {
     return (
       <View style={styles.inputWrapper}>
         <TextInput
-                {...rest}
+          {...rest}
           style={[styles.input, fieldState.error && { borderColor: 'red' }]}
           value={field.value}
           onChangeText={field.onChange}
